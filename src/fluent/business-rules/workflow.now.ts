@@ -1,0 +1,141 @@
+import '@servicenow/sdk/global'
+import { BusinessRule } from '@servicenow/sdk/core'
+
+BusinessRule({
+    $id: Now.ID['asset_req_guard'],
+    name: 'ERP Asset Request - workflow guard',
+    table: 'x_2182542_bjit_erp_asset_req',
+    when: 'before',
+    action: ['insert', 'update'],
+    order: 100,
+    script: `(function executeRule(current, previous) {
+    var managerStates = ['first_approved', 'second_approved', 'approved', 'allocated', 'rejected'];
+    var state = current.getValue('state');
+    var changed = current.isNewRecord() || current.state.changes();
+    if (!changed) return;
+
+    if (managerStates.indexOf(state) > -1 && !gs.hasRole('x_2182542_bjit_erp.manager')) {
+        gs.addErrorMessage('Only ERP managers can move a request to ' + current.state.getDisplayValue() + '.');
+        current.setAbortAction(true);
+        return;
+    }
+
+    var asset = current.asset.getRefRecord();
+    if (state === 'submitted' && asset.isValidRecord() && parseInt(asset.getValue('remaining'), 10) <= 0) {
+        gs.addErrorMessage('Asset ' + asset.getDisplayValue() + ' is not available any more.');
+        current.setAbortAction(true);
+        return;
+    }
+
+    if (state === 'allocated' && asset.isValidRecord()) {
+        var remaining = parseInt(asset.getValue('remaining'), 10) || 0;
+        if (remaining <= 0) {
+            gs.addErrorMessage('No remaining quantity left for ' + asset.getDisplayValue() + '.');
+            current.setAbortAction(true);
+            return;
+        }
+        asset.setValue('remaining', remaining - 1);
+        asset.setValue('assigned_to', current.getValue('employee'));
+        if (remaining - 1 === 0) asset.setValue('status', 'deployed');
+        asset.update();
+    }
+})(current, previous);`,
+})
+
+BusinessRule({
+    $id: Now.ID['asset_req_chatter'],
+    name: 'ERP Asset Request - chatter tracking',
+    table: 'x_2182542_bjit_erp_asset_req',
+    when: 'after',
+    action: ['insert', 'update'],
+    order: 200,
+    script: `(function executeRule(current, previous) {
+    var isNew = current.operation() === 'insert';
+    if (!isNew && !current.state.changes()) return;
+    var msg = new GlideRecord('x_2182542_bjit_erp_message');
+    msg.initialize();
+    msg.setValue('model', current.getTableName());
+    msg.setValue('res_id', current.getUniqueValue());
+    msg.setValue('record_name', current.getValue('number') + ' - ' + current.asset.getDisplayValue());
+    msg.setValue('message_type', 'notification');
+    msg.setValue('body', isNew
+        ? 'Asset Request created'
+        : 'Status: ' + previous.state.getDisplayValue() + ' \\u2192 ' + current.state.getDisplayValue());
+    var employee = current.getValue('employee');
+    if (!isNew && employee && employee !== gs.getUserID()) msg.setValue('needaction', employee);
+    msg.insert();
+})(current, previous);`,
+})
+
+BusinessRule({
+    $id: Now.ID['ticket_numbering'],
+    name: 'ERP Ticket - Odoo style numbering',
+    table: 'x_2182542_bjit_erp_ticket',
+    when: 'before',
+    action: ['insert'],
+    order: 50,
+    script: `(function executeRule(current, previous) {
+    var num = current.getValue('number') || '';
+    if (num.indexOf('/') > -1) return;
+    var seq = num.replace(/^SUPP/, '');
+    var date = current.getValue('request_date') || new GlideDate().getValue();
+    var parts = date.split('-');
+    current.setValue('number', 'SUPP/' + parts[0] + '/' + parts[1] + '/' + seq);
+})(current, previous);`,
+})
+
+BusinessRule({
+    $id: Now.ID['ticket_guard'],
+    name: 'ERP Ticket - workflow guard',
+    table: 'x_2182542_bjit_erp_ticket',
+    when: 'before',
+    action: ['insert', 'update'],
+    order: 100,
+    script: `(function executeRule(current, previous) {
+    var state = current.getValue('state');
+    if (!current.isNewRecord() && !current.state.changes()) return;
+
+    var managerStates = ['in_progress', 'completed', 'closed', 'rejected'];
+    if (managerStates.indexOf(state) > -1 && !gs.hasRole('x_2182542_bjit_erp.manager')) {
+        gs.addErrorMessage('Only ERP managers can move a ticket to ' + current.state.getDisplayValue() + '.');
+        current.setAbortAction(true);
+        return;
+    }
+    if (state === 'rejected' && !current.getValue('reject_reason')) {
+        gs.addErrorMessage('Reject Reason is required to reject a ticket.');
+        current.setAbortAction(true);
+        return;
+    }
+    if (state === 'confirmed') {
+        var m1 = current.requester.manager;
+        current.setValue('approval_manager_1', m1.toString());
+        current.setValue('approval_manager_2', m1.manager.toString());
+        current.setValue('approval_manager_3', m1.manager.manager.toString());
+    }
+})(current, previous);`,
+})
+
+BusinessRule({
+    $id: Now.ID['ticket_chatter'],
+    name: 'ERP Ticket - chatter tracking',
+    table: 'x_2182542_bjit_erp_ticket',
+    when: 'after',
+    action: ['insert', 'update'],
+    order: 200,
+    script: `(function executeRule(current, previous) {
+    var isNew = current.operation() === 'insert';
+    if (!isNew && !current.state.changes()) return;
+    var msg = new GlideRecord('x_2182542_bjit_erp_message');
+    msg.initialize();
+    msg.setValue('model', current.getTableName());
+    msg.setValue('res_id', current.getUniqueValue());
+    msg.setValue('record_name', current.getValue('number') + ' - ' + current.getValue('title'));
+    msg.setValue('message_type', 'notification');
+    msg.setValue('body', isNew
+        ? 'Ticket created'
+        : 'Status: ' + previous.state.getDisplayValue() + ' \\u2192 ' + current.state.getDisplayValue());
+    var requester = current.getValue('requester');
+    if (!isNew && requester && requester !== gs.getUserID()) msg.setValue('needaction', requester);
+    msg.insert();
+})(current, previous);`,
+})

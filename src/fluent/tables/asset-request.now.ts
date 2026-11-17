@@ -1,0 +1,43 @@
+import '@servicenow/sdk/global'
+import { Table, StringColumn, ChoiceColumn, ReferenceColumn, DateColumn, MultiLineTextColumn } from '@servicenow/sdk/core'
+
+export const x_2182542_bjit_erp_asset_req = Table({
+    name: 'x_2182542_bjit_erp_asset_req',
+    label: 'ERP Asset Request',
+    display: 'number',
+    allowWebServiceAccess: true,
+    actions: { read: true },
+    autoNumber: { prefix: 'AREQ', number: 1000, numberOfDigits: 7 },
+    schema: {
+        number: StringColumn({ label: 'Number', maxLength: 40, readOnly: true, default: 'javascript:global.getNextObjNumberPadded();' }),
+        asset: ReferenceColumn({
+            label: 'Asset',
+            referenceTable: 'x_2182542_bjit_erp_asset',
+            mandatory: true,
+        }),
+        employee: ReferenceColumn({
+            label: 'Employee',
+            referenceTable: 'sys_user',
+            mandatory: true,
+            default: 'javascript:gs.getUserID()',
+        }),
+        request_date: DateColumn({ label: 'Request Date', default: 'javascript:new GlideDate().getValue()' }),
+        state: ChoiceColumn({
+            label: 'Status',
+            dropdown: 'dropdown_without_none',
+            default: 'draft',
+            choices: {
+                draft: { label: 'Draft', sequence: 0 },
+                submitted: { label: 'Submitted', sequence: 1 },
+                first_approved: { label: '1st Manager Approved', sequence: 2 },
+                second_approved: { label: '2nd Manager Approved', sequence: 3 },
+                approved: { label: 'Approved', sequence: 4 },
+                allocated: { label: 'Allocated', sequence: 5 },
+                rejected: { label: 'Rejected', sequence: 6 },
+                cancelled: { label: 'Cancelled', sequence: 7 },
+            },
+        }),
+        user_comments: MultiLineTextColumn({ label: 'User Comments', maxLength: 4000 }),
+        manager_comments: MultiLineTextColumn({ label: 'Manager Comments', maxLength: 4000 }),
+    },
+})
