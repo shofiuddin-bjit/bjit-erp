@@ -9,8 +9,8 @@ import {
     BooleanColumn,
 } from '@servicenow/sdk/core'
 
-export const x_2182542_bjit_erp_channel = Table({
-    name: 'x_2182542_bjit_erp_channel',
+export const x_587205_bjit_erp_channel = Table({
+    name: 'x_587205_bjit_erp_channel',
     label: 'ERP Discuss Channel',
     display: 'name',
     allowWebServiceAccess: true,
@@ -33,8 +33,8 @@ export const x_2182542_bjit_erp_channel = Table({
 })
 
 // Holds channel posts and record chatter (Odoo mail.message equivalent).
-export const x_2182542_bjit_erp_message = Table({
-    name: 'x_2182542_bjit_erp_message',
+export const x_587205_bjit_erp_message = Table({
+    name: 'x_587205_bjit_erp_message',
     label: 'ERP Message',
     allowWebServiceAccess: true,
     actions: { read: true },
@@ -51,7 +51,7 @@ export const x_2182542_bjit_erp_message = Table({
                 notification: { label: 'Notification', sequence: 2 },
             },
         }),
-        channel: ReferenceColumn({ label: 'Channel', referenceTable: 'x_2182542_bjit_erp_channel' }),
+        channel: ReferenceColumn({ label: 'Channel', referenceTable: 'x_587205_bjit_erp_channel' }),
         model: StringColumn({ label: 'Related Table', maxLength: 80 }),
         res_id: StringColumn({ label: 'Related Record', maxLength: 32 }),
         record_name: StringColumn({ label: 'Record Name', maxLength: 160 }),

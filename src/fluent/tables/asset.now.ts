@@ -9,8 +9,8 @@ import {
     MultiLineTextColumn,
 } from '@servicenow/sdk/core'
 
-export const x_2182542_bjit_erp_asset = Table({
-    name: 'x_2182542_bjit_erp_asset',
+export const x_587205_bjit_erp_asset = Table({
+    name: 'x_587205_bjit_erp_asset',
     label: 'ERP Asset',
     display: 'asset_number',
     allowWebServiceAccess: true,
@@ -61,7 +61,7 @@ export const x_2182542_bjit_erp_asset = Table({
             },
         }),
         assigned_to: ReferenceColumn({ label: 'Assigned To', referenceTable: 'sys_user' }),
-        location: ReferenceColumn({ label: 'Asset Location', referenceTable: 'x_2182542_bjit_erp_location' }),
+        location: ReferenceColumn({ label: 'Asset Location', referenceTable: 'x_587205_bjit_erp_location' }),
         purchase_date: DateColumn({ label: 'Purchase Date' }),
         notes: MultiLineTextColumn({ label: 'Notes', maxLength: 4000 }),
     },

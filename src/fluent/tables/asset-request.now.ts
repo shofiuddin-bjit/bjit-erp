@@ -1,8 +1,8 @@
 import '@servicenow/sdk/global'
 import { Table, StringColumn, ChoiceColumn, ReferenceColumn, DateColumn, MultiLineTextColumn } from '@servicenow/sdk/core'
 
-export const x_2182542_bjit_erp_asset_req = Table({
-    name: 'x_2182542_bjit_erp_asset_req',
+export const x_587205_bjit_erp_asset_req = Table({
+    name: 'x_587205_bjit_erp_asset_req',
     label: 'ERP Asset Request',
     display: 'number',
     allowWebServiceAccess: true,
@@ -12,7 +12,7 @@ export const x_2182542_bjit_erp_asset_req = Table({
         number: StringColumn({ label: 'Number', maxLength: 40, readOnly: true, default: 'javascript:global.getNextObjNumberPadded();' }),
         asset: ReferenceColumn({
             label: 'Asset',
-            referenceTable: 'x_2182542_bjit_erp_asset',
+            referenceTable: 'x_587205_bjit_erp_asset',
             mandatory: true,
         }),
         employee: ReferenceColumn({

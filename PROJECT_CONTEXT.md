@@ -53,7 +53,7 @@ repository; retain the originals separately for future visual comparisons.
 The user explicitly selected:
 
 1. Custom scoped ServiceNow tables and REST API, with seed/demo data.
-2. Deploy to `dev209725`.
+2. Deploy to `dev337612`.
 3. Validate login against real ServiceNow user credentials, not a mock login.
 4. Keep other sidebar apps visible as placeholder pages.
 
@@ -66,10 +66,10 @@ an Odoo deployment, a complete ERP, or a formally verified pixel-perfect clone.
 | --- | --- |
 | Application | BJIT ERP |
 | Package | `bjit-erp`, version `0.0.1` |
-| Scope | `x_2182542_bjit_erp` |
-| Scope ID | `6569532a56304841a6be32eb1de6ccb8` |
-| Instance | https://dev209725.service-now.com |
-| UI page | https://dev209725.service-now.com/x_2182542_bjit_erp_app.do |
+| Scope | `x_587205_bjit_erp` |
+| Scope ID | `1693d17f9a444f38b16251c6a40a2e18` |
+| Instance | https://dev337612.service-now.com |
+| UI page | https://dev337612.service-now.com/x_587205_bjit_erp_app.do |
 | Navigator entry | BJIT ERP > Open BJIT ERP |
 | Local development | Normally http://localhost:3000 |
 | Source packaging | `packageSourceCodeOnInstance: true` |
@@ -242,12 +242,12 @@ employee identities and manager/department information.
 
 | Table | Purpose and main fields |
 | --- | --- |
-| `x_2182542_bjit_erp_location` | Name, branch, asset-store flag, active |
-| `x_2182542_bjit_erp_asset` | Name, asset number/model, serial, type/category, quantity, remaining, status, assigned employee, location, purchase date, notes |
-| `x_2182542_bjit_erp_asset_req` | Number, asset, employee, request date, state, user/manager comments |
-| `x_2182542_bjit_erp_ticket` | Number, title, requester, date, category/type, branch/location, priority, description, three managers, reasons, state |
-| `x_2182542_bjit_erp_channel` | Name, description, channel/chat type, public flag, members |
-| `x_2182542_bjit_erp_message` | Body, author, type, channel, related table/record/name, inbox recipients, starred-by and read-by lists |
+| `x_587205_bjit_erp_location` | Name, branch, asset-store flag, active |
+| `x_587205_bjit_erp_asset` | Name, asset number/model, serial, type/category, quantity, remaining, status, assigned employee, location, purchase date, notes |
+| `x_587205_bjit_erp_asset_req` | Number, asset, employee, request date, state, user/manager comments |
+| `x_587205_bjit_erp_ticket` | Number, title, requester, date, category/type, branch/location, priority, description, three managers, reasons, state |
+| `x_587205_bjit_erp_channel` | Name, description, channel/chat type, public flag, members |
+| `x_587205_bjit_erp_message` | Body, author, type, channel, related table/record/name, inbox recipients, starred-by and read-by lists |
 
 Choice labels are also mirrored in the client constants. Keep Fluent choices,
 client choices, forms, and business-rule state names consistent when changing them.
@@ -274,8 +274,8 @@ records: the UI counts records, while quantities can be greater than one.
 
 | Role | Intended use |
 | --- | --- |
-| `x_2182542_bjit_erp.user` | Employee: Discuss, asset requests, support tickets |
-| `x_2182542_bjit_erp.manager` | Manager: contains employee role; master-data maintenance, approvals, ticket processing |
+| `x_587205_bjit_erp.user` | Employee: Discuss, asset requests, support tickets |
+| `x_587205_bjit_erp.manager` | Manager: contains employee role; master-data maintenance, approvals, ticket processing |
 | `admin` | Platform administrator; application ACLs allow admin override |
 | `snc_basic_auth_api_access` | Instance-level permission required for Basic-auth API login on this instance |
 
@@ -331,7 +331,20 @@ records/passwords/role assignments were changed, and the local dev server was
 restarted to refresh SDK authentication. The instance-wide restriction was not
 disabled.
 
-### Accounts prepared
+### Accounts prepared on the original instance
+
+The accounts listed below were prepared on the original `dev209725` instance.
+They are not evidence of account availability on `dev337612`; create or verify
+users and roles on that instance before login testing.
+
+### Account created on dev337612
+
+| Username | Email | Application role | Notes |
+| --- | --- | --- | --- |
+| `bjit_manager_test1` | `bjit_manager_test1@example.com` | manager | Display name BJIT Manager Test 1; title IT Manager; active; granted `snc_basic_auth_api_access`; created 2026-11-18 |
+
+The temporary password was shared directly with the user and is not stored here.
+Rotate it after testing.
 
 | Username | Email | Application role | Notes |
 | --- | --- | --- | --- |
@@ -353,13 +366,14 @@ Do not assume the originally supplied password is still valid.
 ### Recommended login/testing procedure
 
 1. Use the instance, not localhost, for employee/manager authentication tests.
-2. Sign in at https://dev209725.service-now.com/login.do with the intended user.
-3. Open https://dev209725.service-now.com/x_2182542_bjit_erp_app.do.
-4. Sign in through the application with the same account. Username is the most
+2. Create or verify the intended user and roles on `dev337612`.
+3. Sign in at https://dev337612.service-now.com/login.do with that user.
+4. Open https://dev337612.service-now.com/x_587205_bjit_erp_app.do.
+5. Sign in through the application with the same account. Username is the most
    reliable identifier; email fallback depends on an available platform session.
-5. To switch roles, log out of both the app and ServiceNow, or use separate browser
+6. To switch roles, log out of both the app and ServiceNow, or use separate browser
    profiles/private sessions.
-6. If login fails, check exact username, password, active/locked/reset flags,
+7. If login fails, check exact username, password, active/locked/reset flags,
    app role, and `snc_basic_auth_api_access`.
 
 ### Localhost authentication caveat
@@ -416,6 +430,7 @@ These are historical manual/CLI/browser checks, not an automated regression suit
 | Initial incident-demo build | Passed |
 | New ERP build/type-check | Passed after static Fluent and numbering fixes |
 | Instance deployment | SDK install completed successfully, including final deployment |
+| dev337612 deployment | 2026-11-18 build passed and SDK install completed; target app `x_587205_bjit_erp`, sys_id `1693d17f9a444f38b16251c6a40a2e18`; app page `https://dev337612.service-now.com/x_587205_bjit_erp_app.do` |
 | Local availability | HTTP 200 on active development URL |
 | Screenshot comparisons | Discuss, grouped/selected assets, asset request, support form/kanban visually inspected |
 | Asset totals | Quantity 111, Remaining 74 verified |
@@ -493,6 +508,8 @@ changed behavior, record deployment status, and update this document.
 | 2026-11-17 | Investigated login failure without editing implementation | Found missing requested account and Basic-auth role restriction |
 | 2026-11-17 | Prepared employee/manager test accounts and API-access roles | Four successful direct REST logins; employee browser app login passed |
 | 2026-11-18 | Created this living project context document | Documentation only; source/config inspected; no app changes |
+| 2026-11-18 | Initialized and deployed BJIT ERP on dev337612 using the instance vendor prefix | Build passed; SDK install completed with demo data; local scope/table/role/page references updated; other original-instance test accounts need verification here |
+| 2026-11-18 | Created BJIT Manager Test 1 on dev337612 | Active account verified with manager, included employee, and Basic Auth API roles; temporary password set and shared directly |
 
 ### Template for the next implementation update
 

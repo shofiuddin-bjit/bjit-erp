@@ -4,7 +4,7 @@ import { BusinessRule } from '@servicenow/sdk/core'
 BusinessRule({
     $id: Now.ID['asset_req_guard'],
     name: 'ERP Asset Request - workflow guard',
-    table: 'x_2182542_bjit_erp_asset_req',
+    table: 'x_587205_bjit_erp_asset_req',
     when: 'before',
     action: ['insert', 'update'],
     order: 100,
@@ -14,7 +14,7 @@ BusinessRule({
     var changed = current.isNewRecord() || current.state.changes();
     if (!changed) return;
 
-    if (managerStates.indexOf(state) > -1 && !gs.hasRole('x_2182542_bjit_erp.manager')) {
+    if (managerStates.indexOf(state) > -1 && !gs.hasRole('x_587205_bjit_erp.manager')) {
         gs.addErrorMessage('Only ERP managers can move a request to ' + current.state.getDisplayValue() + '.');
         current.setAbortAction(true);
         return;
@@ -45,14 +45,14 @@ BusinessRule({
 BusinessRule({
     $id: Now.ID['asset_req_chatter'],
     name: 'ERP Asset Request - chatter tracking',
-    table: 'x_2182542_bjit_erp_asset_req',
+    table: 'x_587205_bjit_erp_asset_req',
     when: 'after',
     action: ['insert', 'update'],
     order: 200,
     script: `(function executeRule(current, previous) {
     var isNew = current.operation() === 'insert';
     if (!isNew && !current.state.changes()) return;
-    var msg = new GlideRecord('x_2182542_bjit_erp_message');
+    var msg = new GlideRecord('x_587205_bjit_erp_message');
     msg.initialize();
     msg.setValue('model', current.getTableName());
     msg.setValue('res_id', current.getUniqueValue());
@@ -70,7 +70,7 @@ BusinessRule({
 BusinessRule({
     $id: Now.ID['ticket_numbering'],
     name: 'ERP Ticket - Odoo style numbering',
-    table: 'x_2182542_bjit_erp_ticket',
+    table: 'x_587205_bjit_erp_ticket',
     when: 'before',
     action: ['insert'],
     order: 50,
@@ -87,7 +87,7 @@ BusinessRule({
 BusinessRule({
     $id: Now.ID['ticket_guard'],
     name: 'ERP Ticket - workflow guard',
-    table: 'x_2182542_bjit_erp_ticket',
+    table: 'x_587205_bjit_erp_ticket',
     when: 'before',
     action: ['insert', 'update'],
     order: 100,
@@ -96,7 +96,7 @@ BusinessRule({
     if (!current.isNewRecord() && !current.state.changes()) return;
 
     var managerStates = ['in_progress', 'completed', 'closed', 'rejected'];
-    if (managerStates.indexOf(state) > -1 && !gs.hasRole('x_2182542_bjit_erp.manager')) {
+    if (managerStates.indexOf(state) > -1 && !gs.hasRole('x_587205_bjit_erp.manager')) {
         gs.addErrorMessage('Only ERP managers can move a ticket to ' + current.state.getDisplayValue() + '.');
         current.setAbortAction(true);
         return;
@@ -118,14 +118,14 @@ BusinessRule({
 BusinessRule({
     $id: Now.ID['ticket_chatter'],
     name: 'ERP Ticket - chatter tracking',
-    table: 'x_2182542_bjit_erp_ticket',
+    table: 'x_587205_bjit_erp_ticket',
     when: 'after',
     action: ['insert', 'update'],
     order: 200,
     script: `(function executeRule(current, previous) {
     var isNew = current.operation() === 'insert';
     if (!isNew && !current.state.changes()) return;
-    var msg = new GlideRecord('x_2182542_bjit_erp_message');
+    var msg = new GlideRecord('x_587205_bjit_erp_message');
     msg.initialize();
     msg.setValue('model', current.getTableName());
     msg.setValue('res_id', current.getUniqueValue());

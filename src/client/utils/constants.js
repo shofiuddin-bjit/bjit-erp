@@ -1,4 +1,4 @@
-export const SCOPE = 'x_2182542_bjit_erp'
+export const SCOPE = 'x_587205_bjit_erp'
 
 export const TABLES = {
     asset: `${SCOPE}_asset`,

@@ -4,7 +4,7 @@ import erpPage from '../../client/index.html'
 
 UiPage({
     $id: Now.ID['bjit-erp-page'],
-    endpoint: 'x_2182542_bjit_erp_app.do',
+    endpoint: 'x_587205_bjit_erp_app.do',
     description: 'BJIT ERP - Discuss, Asset Management and Support',
     category: 'general',
     html: erpPage,

@@ -80,7 +80,7 @@ async function lookupUserName(email) {
 
 async function fetchIsManager(user, basic) {
     const qs = new URLSearchParams({
-        sysparm_query: `user=${user.sys_id.value}^role.nameINadmin,${'x_2182542_bjit_erp.manager'}`,
+        sysparm_query: `user=${user.sys_id.value}^role.nameINadmin,${'x_587205_bjit_erp.manager'}`,
         sysparm_fields: 'sys_id',
         sysparm_limit: '1',
     })

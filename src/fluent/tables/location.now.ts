@@ -7,8 +7,8 @@ export const BRANCH_CHOICES = {
     office_3: { label: 'OFFICE-3 (CHATTOGRAM)', sequence: 2 },
 }
 
-export const x_2182542_bjit_erp_location = Table({
-    name: 'x_2182542_bjit_erp_location',
+export const x_587205_bjit_erp_location = Table({
+    name: 'x_587205_bjit_erp_location',
     label: 'ERP Location',
     display: 'name',
     allowWebServiceAccess: true,
