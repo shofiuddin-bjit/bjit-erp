@@ -1,4 +1,5 @@
 import { DEPT_FIELDS } from '../utils/fields'
+import { SCOPE } from '../../config.js'
 
 const KEY = 'bjit_erp_auth'
 let sessionUserId = null
@@ -80,7 +81,7 @@ async function lookupUserName(email) {
 
 async function fetchIsManager(user, basic) {
     const qs = new URLSearchParams({
-        sysparm_query: `user=${user.sys_id.value}^role.nameINadmin,${'x_2182542_bjit_erp.manager'}`,
+        sysparm_query: `user=${user.sys_id.value}^role.nameINadmin,${SCOPE}.manager`,
         sysparm_fields: 'sys_id',
         sysparm_limit: '1',
     })

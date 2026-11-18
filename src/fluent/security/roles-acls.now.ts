@@ -15,7 +15,7 @@ export const erpManager = Role({
 // Assets and locations are master data maintained by managers; everything else is writable by employees.
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_location_read'],
+    $id: Now.ID['erp_location_read_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_location',
     operation: 'read',
@@ -24,7 +24,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_location_create'],
+    $id: Now.ID['erp_location_create_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_location',
     operation: 'create',
@@ -33,7 +33,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_location_write'],
+    $id: Now.ID['erp_location_write_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_location',
     operation: 'write',
@@ -42,7 +42,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_location_delete'],
+    $id: Now.ID['erp_location_delete_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_location',
     operation: 'delete',
@@ -51,7 +51,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_read'],
+    $id: Now.ID['erp_asset_read_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset',
     operation: 'read',
@@ -60,7 +60,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_create'],
+    $id: Now.ID['erp_asset_create_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset',
     operation: 'create',
@@ -69,7 +69,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_write'],
+    $id: Now.ID['erp_asset_write_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset',
     operation: 'write',
@@ -78,7 +78,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_delete'],
+    $id: Now.ID['erp_asset_delete_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset',
     operation: 'delete',
@@ -87,7 +87,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_req_read'],
+    $id: Now.ID['erp_asset_req_read_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset_req',
     operation: 'read',
@@ -96,7 +96,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_req_create'],
+    $id: Now.ID['erp_asset_req_create_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset_req',
     operation: 'create',
@@ -105,7 +105,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_req_write'],
+    $id: Now.ID['erp_asset_req_write_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset_req',
     operation: 'write',
@@ -114,7 +114,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_asset_req_delete'],
+    $id: Now.ID['erp_asset_req_delete_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_asset_req',
     operation: 'delete',
@@ -123,7 +123,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_ticket_read'],
+    $id: Now.ID['erp_ticket_read_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_ticket',
     operation: 'read',
@@ -132,7 +132,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_ticket_create'],
+    $id: Now.ID['erp_ticket_create_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_ticket',
     operation: 'create',
@@ -141,7 +141,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_ticket_write'],
+    $id: Now.ID['erp_ticket_write_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_ticket',
     operation: 'write',
@@ -150,7 +150,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_ticket_delete'],
+    $id: Now.ID['erp_ticket_delete_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_ticket',
     operation: 'delete',
@@ -159,7 +159,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_channel_read'],
+    $id: Now.ID['erp_channel_read_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_channel',
     operation: 'read',
@@ -168,7 +168,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_channel_create'],
+    $id: Now.ID['erp_channel_create_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_channel',
     operation: 'create',
@@ -177,7 +177,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_channel_write'],
+    $id: Now.ID['erp_channel_write_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_channel',
     operation: 'write',
@@ -186,7 +186,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_channel_delete'],
+    $id: Now.ID['erp_channel_delete_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_channel',
     operation: 'delete',
@@ -195,7 +195,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_message_read'],
+    $id: Now.ID['erp_message_read_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_message',
     operation: 'read',
@@ -204,7 +204,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_message_create'],
+    $id: Now.ID['erp_message_create_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_message',
     operation: 'create',
@@ -213,7 +213,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_message_write'],
+    $id: Now.ID['erp_message_write_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_message',
     operation: 'write',
@@ -222,7 +222,7 @@ Acl({
 })
 
 Acl({
-    $id: Now.ID['x_2182542_bjit_erp_message_delete'],
+    $id: Now.ID['erp_message_delete_acl'],
     type: 'record',
     table: 'x_2182542_bjit_erp_message',
     operation: 'delete',

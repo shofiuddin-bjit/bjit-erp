@@ -101,6 +101,102 @@ declare global {
                         table: 'x_2182542_bjit_erp_channel'
                         id: 'bec3fad39b1e4f0f8a86046b7d9fdf79'
                     }
+                    erp_asset_create_acl: {
+                        table: 'sys_security_acl'
+                        id: '1724be890ea94044bd6809db01460505'
+                    }
+                    erp_asset_delete_acl: {
+                        table: 'sys_security_acl'
+                        id: '7e23e0bac0864d5d9083e768b5d9261e'
+                    }
+                    erp_asset_read_acl: {
+                        table: 'sys_security_acl'
+                        id: 'a8b0f116735a44cb81957f8d731acc49'
+                    }
+                    erp_asset_req_create_acl: {
+                        table: 'sys_security_acl'
+                        id: 'da643717d6d34fe597900f9d565df206'
+                    }
+                    erp_asset_req_delete_acl: {
+                        table: 'sys_security_acl'
+                        id: '9d0ed75ddf314011bbb0784b96ce3cfb'
+                    }
+                    erp_asset_req_read_acl: {
+                        table: 'sys_security_acl'
+                        id: 'f2d083656d1f45a89eb69486b1032079'
+                    }
+                    erp_asset_req_write_acl: {
+                        table: 'sys_security_acl'
+                        id: '0c03ef6011d1442cabdd2de3e0e3f1cb'
+                    }
+                    erp_asset_write_acl: {
+                        table: 'sys_security_acl'
+                        id: '21fe354a8a5b46cb9b57dabf333fdf65'
+                    }
+                    erp_channel_create_acl: {
+                        table: 'sys_security_acl'
+                        id: 'dada30b9e06c43b69a6751c0cf973fa9'
+                    }
+                    erp_channel_delete_acl: {
+                        table: 'sys_security_acl'
+                        id: '1f152a14e9e34ab28951a0f505c51e9d'
+                    }
+                    erp_channel_read_acl: {
+                        table: 'sys_security_acl'
+                        id: '37b076080b4746f38473857bf35976ec'
+                    }
+                    erp_channel_write_acl: {
+                        table: 'sys_security_acl'
+                        id: 'b7500a159d464f408e87ed24676a9371'
+                    }
+                    erp_location_create_acl: {
+                        table: 'sys_security_acl'
+                        id: 'bcb73e1c98ad4939829e8080d1f941fb'
+                    }
+                    erp_location_delete_acl: {
+                        table: 'sys_security_acl'
+                        id: 'ed2f95951dde4c8583cd03c3dbf7ea34'
+                    }
+                    erp_location_read_acl: {
+                        table: 'sys_security_acl'
+                        id: '57a7b4825a264833a8da3b0c946d7030'
+                    }
+                    erp_location_write_acl: {
+                        table: 'sys_security_acl'
+                        id: 'fd048f4e7dae44159e146f553f34226d'
+                    }
+                    erp_message_create_acl: {
+                        table: 'sys_security_acl'
+                        id: '1e7b1abbc47c43d3b2bb7e5b7737a680'
+                    }
+                    erp_message_delete_acl: {
+                        table: 'sys_security_acl'
+                        id: '197406444b5e4d388f1424c1ee8c054d'
+                    }
+                    erp_message_read_acl: {
+                        table: 'sys_security_acl'
+                        id: 'e93f87f89dcd4664befbedadb13f4aed'
+                    }
+                    erp_message_write_acl: {
+                        table: 'sys_security_acl'
+                        id: '64d3d36e1d6249218eea974983d7902c'
+                    }
+                    erp_ticket_create_acl: {
+                        table: 'sys_security_acl'
+                        id: 'e61e98738c4d416fa8131da8cd95a0c3'
+                    }
+                    erp_ticket_delete_acl: {
+                        table: 'sys_security_acl'
+                        id: 'eb7a6a942ade4c9299cc8fa524d47fb7'
+                    }
+                    erp_ticket_read_acl: {
+                        table: 'sys_security_acl'
+                        id: '642a7b5c5d624c8980d70649b2268be1'
+                    }
+                    erp_ticket_write_acl: {
+                        table: 'sys_security_acl'
+                        id: '0fcb80f9333e4433b81e023ddf665f66'
+                    }
                     loc_ceo_l2: {
                         table: 'x_2182542_bjit_erp_location'
                         id: 'df7fd50c745a424182217664c723f07e'
@@ -144,102 +240,6 @@ declare global {
                     ticket_numbering: {
                         table: 'sys_script'
                         id: '0511ae99cc944b09b7a7556cc0d3bdb6'
-                    }
-                    x_2182542_bjit_erp_asset_create: {
-                        table: 'sys_security_acl'
-                        id: '1724be890ea94044bd6809db01460505'
-                    }
-                    x_2182542_bjit_erp_asset_delete: {
-                        table: 'sys_security_acl'
-                        id: '7e23e0bac0864d5d9083e768b5d9261e'
-                    }
-                    x_2182542_bjit_erp_asset_read: {
-                        table: 'sys_security_acl'
-                        id: 'a8b0f116735a44cb81957f8d731acc49'
-                    }
-                    x_2182542_bjit_erp_asset_req_create: {
-                        table: 'sys_security_acl'
-                        id: 'da643717d6d34fe597900f9d565df206'
-                    }
-                    x_2182542_bjit_erp_asset_req_delete: {
-                        table: 'sys_security_acl'
-                        id: '9d0ed75ddf314011bbb0784b96ce3cfb'
-                    }
-                    x_2182542_bjit_erp_asset_req_read: {
-                        table: 'sys_security_acl'
-                        id: 'f2d083656d1f45a89eb69486b1032079'
-                    }
-                    x_2182542_bjit_erp_asset_req_write: {
-                        table: 'sys_security_acl'
-                        id: '0c03ef6011d1442cabdd2de3e0e3f1cb'
-                    }
-                    x_2182542_bjit_erp_asset_write: {
-                        table: 'sys_security_acl'
-                        id: '21fe354a8a5b46cb9b57dabf333fdf65'
-                    }
-                    x_2182542_bjit_erp_channel_create: {
-                        table: 'sys_security_acl'
-                        id: 'dada30b9e06c43b69a6751c0cf973fa9'
-                    }
-                    x_2182542_bjit_erp_channel_delete: {
-                        table: 'sys_security_acl'
-                        id: '1f152a14e9e34ab28951a0f505c51e9d'
-                    }
-                    x_2182542_bjit_erp_channel_read: {
-                        table: 'sys_security_acl'
-                        id: '37b076080b4746f38473857bf35976ec'
-                    }
-                    x_2182542_bjit_erp_channel_write: {
-                        table: 'sys_security_acl'
-                        id: 'b7500a159d464f408e87ed24676a9371'
-                    }
-                    x_2182542_bjit_erp_location_create: {
-                        table: 'sys_security_acl'
-                        id: 'bcb73e1c98ad4939829e8080d1f941fb'
-                    }
-                    x_2182542_bjit_erp_location_delete: {
-                        table: 'sys_security_acl'
-                        id: 'ed2f95951dde4c8583cd03c3dbf7ea34'
-                    }
-                    x_2182542_bjit_erp_location_read: {
-                        table: 'sys_security_acl'
-                        id: '57a7b4825a264833a8da3b0c946d7030'
-                    }
-                    x_2182542_bjit_erp_location_write: {
-                        table: 'sys_security_acl'
-                        id: 'fd048f4e7dae44159e146f553f34226d'
-                    }
-                    x_2182542_bjit_erp_message_create: {
-                        table: 'sys_security_acl'
-                        id: '1e7b1abbc47c43d3b2bb7e5b7737a680'
-                    }
-                    x_2182542_bjit_erp_message_delete: {
-                        table: 'sys_security_acl'
-                        id: '197406444b5e4d388f1424c1ee8c054d'
-                    }
-                    x_2182542_bjit_erp_message_read: {
-                        table: 'sys_security_acl'
-                        id: 'e93f87f89dcd4664befbedadb13f4aed'
-                    }
-                    x_2182542_bjit_erp_message_write: {
-                        table: 'sys_security_acl'
-                        id: '64d3d36e1d6249218eea974983d7902c'
-                    }
-                    x_2182542_bjit_erp_ticket_create: {
-                        table: 'sys_security_acl'
-                        id: 'e61e98738c4d416fa8131da8cd95a0c3'
-                    }
-                    x_2182542_bjit_erp_ticket_delete: {
-                        table: 'sys_security_acl'
-                        id: 'eb7a6a942ade4c9299cc8fa524d47fb7'
-                    }
-                    x_2182542_bjit_erp_ticket_read: {
-                        table: 'sys_security_acl'
-                        id: '642a7b5c5d624c8980d70649b2268be1'
-                    }
-                    x_2182542_bjit_erp_ticket_write: {
-                        table: 'sys_security_acl'
-                        id: '0fcb80f9333e4433b81e023ddf665f66'
                     }
                 }
                 composite: [

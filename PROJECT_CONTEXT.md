@@ -13,6 +13,9 @@ Update the relevant sections, the last-updated date, and the change log. Record
 what actually changed and what was verified; distinguish planned features from
 implemented ones. No automatic document-update job currently exists.
 
+For cloning, building, installing and testing on another developer's instance,
+follow [DEVELOPER_SETUP.md](DEVELOPER_SETUP.md).
+
 Never put passwords, API tokens, session cookies, or encoded credentials here.
 Maintain test credentials separately in an approved password manager. Usernames
 and role assignments below are non-secret account references.
@@ -75,6 +78,17 @@ an Odoo deployment, a complete ERP, or a formally verified pixel-perfect clone.
 | Source packaging | `packageSourceCodeOnInstance: true` |
 
 The local server temporarily used port 8081 when port 3000 was occupied.
+
+### Scope portability
+
+The scope-specific Fluent definitions are authored as templates under
+`src/fluent-templates` and generated from `now.config.json` before SDK build,
+install, dev and type-generation commands. Client role/table names use
+`src/config.js`, which imports the same `now.config.json` scope. Change only the
+`scope` property to target a registered `x_...` or `sn_...` scope (maximum 18
+characters); retain `scopeId` for the package identity. The build validates
+scope format and the 30-character custom-table limit. An alternate-scope build
+was verified; installation on a second instance has not been tested.
 Always use the URL printed by the SDK rather than assuming a port. A Docker
 process was also observed on port 3000; do not terminate unrelated processes.
 
@@ -493,6 +507,8 @@ changed behavior, record deployment status, and update this document.
 | 2026-11-17 | Investigated login failure without editing implementation | Found missing requested account and Basic-auth role restriction |
 | 2026-11-17 | Prepared employee/manager test accounts and API-access roles | Four successful direct REST logins; employee browser app login passed |
 | 2026-11-18 | Created this living project context document | Documentation only; source/config inspected; no app changes |
+| 2026-11-18 | Added developer clone/build/install/test guide | Documentation only; SDK CLI options checked; not executed on a second instance |
+| 2026-11-18 | Made scope configurable from `now.config.json` | Alternate-scope build passed with only `scope` changed; no second-instance deployment |
 
 ### Template for the next implementation update
 

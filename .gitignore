@@ -3,5 +3,10 @@
 dist/
 node_modules/
 target/
+/src/fluent/business-rules/*.now.ts
+/src/fluent/data/*.now.ts
+/src/fluent/security/*.now.ts
+/src/fluent/tables/*.now.ts
+/src/fluent/ui-pages/*.now.ts
 *.tsbuildinfo
 .jest_cache

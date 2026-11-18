@@ -1,4 +1,6 @@
-export const SCOPE = 'x_2182542_bjit_erp'
+import { SCOPE } from '../../config.js'
+
+export { SCOPE }
 
 export const TABLES = {
     asset: `${SCOPE}_asset`,
