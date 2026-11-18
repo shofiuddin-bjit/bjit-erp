@@ -2,8 +2,8 @@ import '@servicenow/sdk/global'
 import { Table, StringColumn, ChoiceColumn, ReferenceColumn, DateColumn, MultiLineTextColumn } from '@servicenow/sdk/core'
 import { BRANCH_CHOICES } from './location.now'
 
-export const x_587205_bjit_erp_ticket = Table({
-    name: 'x_587205_bjit_erp_ticket',
+export const x_2315548_bjit_erp_ticket = Table({
+    name: 'x_2315548_bjit_erp_ticket',
     label: 'ERP Support Ticket',
     display: 'title',
     allowWebServiceAccess: true,
@@ -49,7 +49,7 @@ export const x_587205_bjit_erp_ticket = Table({
         branch: ChoiceColumn({ label: 'Branch', mandatory: true, dropdown: 'dropdown_with_none', choices: BRANCH_CHOICES }),
         support_location: ReferenceColumn({
             label: 'Support Location',
-            referenceTable: 'x_587205_bjit_erp_location',
+            referenceTable: 'x_2315548_bjit_erp_location',
             mandatory: true,
         }),
         priority: ChoiceColumn({

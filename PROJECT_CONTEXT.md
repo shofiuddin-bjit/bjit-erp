@@ -66,10 +66,10 @@ an Odoo deployment, a complete ERP, or a formally verified pixel-perfect clone.
 | --- | --- |
 | Application | BJIT ERP |
 | Package | `bjit-erp`, version `0.0.1` |
-| Scope | `x_587205_bjit_erp` |
+| Scope | `x_2315548_bjit_erp` |
 | Scope ID | `1693d17f9a444f38b16251c6a40a2e18` |
 | Instance | https://dev337612.service-now.com |
-| UI page | https://dev337612.service-now.com/x_587205_bjit_erp_app.do |
+| UI page | https://dev337612.service-now.com/x_2315548_bjit_erp_app.do |
 | Navigator entry | BJIT ERP > Open BJIT ERP |
 | Local development | Normally http://localhost:3000 |
 | Source packaging | `packageSourceCodeOnInstance: true` |
@@ -242,12 +242,12 @@ employee identities and manager/department information.
 
 | Table | Purpose and main fields |
 | --- | --- |
-| `x_587205_bjit_erp_location` | Name, branch, asset-store flag, active |
-| `x_587205_bjit_erp_asset` | Name, asset number/model, serial, type/category, quantity, remaining, status, assigned employee, location, purchase date, notes |
-| `x_587205_bjit_erp_asset_req` | Number, asset, employee, request date, state, user/manager comments |
-| `x_587205_bjit_erp_ticket` | Number, title, requester, date, category/type, branch/location, priority, description, three managers, reasons, state |
-| `x_587205_bjit_erp_channel` | Name, description, channel/chat type, public flag, members |
-| `x_587205_bjit_erp_message` | Body, author, type, channel, related table/record/name, inbox recipients, starred-by and read-by lists |
+| `x_2315548_bjit_erp_location` | Name, branch, asset-store flag, active |
+| `x_2315548_bjit_erp_asset` | Name, asset number/model, serial, type/category, quantity, remaining, status, assigned employee, location, purchase date, notes |
+| `x_2315548_bjit_erp_asset_req` | Number, asset, employee, request date, state, user/manager comments |
+| `x_2315548_bjit_erp_ticket` | Number, title, requester, date, category/type, branch/location, priority, description, three managers, reasons, state |
+| `x_2315548_bjit_erp_channel` | Name, description, channel/chat type, public flag, members |
+| `x_2315548_bjit_erp_message` | Body, author, type, channel, related table/record/name, inbox recipients, starred-by and read-by lists |
 
 Choice labels are also mirrored in the client constants. Keep Fluent choices,
 client choices, forms, and business-rule state names consistent when changing them.
@@ -274,8 +274,8 @@ records: the UI counts records, while quantities can be greater than one.
 
 | Role | Intended use |
 | --- | --- |
-| `x_587205_bjit_erp.user` | Employee: Discuss, asset requests, support tickets |
-| `x_587205_bjit_erp.manager` | Manager: contains employee role; master-data maintenance, approvals, ticket processing |
+| `x_2315548_bjit_erp.user` | Employee: Discuss, asset requests, support tickets |
+| `x_2315548_bjit_erp.manager` | Manager: contains employee role; master-data maintenance, approvals, ticket processing |
 | `admin` | Platform administrator; application ACLs allow admin override |
 | `snc_basic_auth_api_access` | Instance-level permission required for Basic-auth API login on this instance |
 
@@ -368,7 +368,7 @@ Do not assume the originally supplied password is still valid.
 1. Use the instance, not localhost, for employee/manager authentication tests.
 2. Create or verify the intended user and roles on `dev337612`.
 3. Sign in at https://dev337612.service-now.com/login.do with that user.
-4. Open https://dev337612.service-now.com/x_587205_bjit_erp_app.do.
+4. Open https://dev337612.service-now.com/x_2315548_bjit_erp_app.do.
 5. Sign in through the application with the same account. Username is the most
    reliable identifier; email fallback depends on an available platform session.
 6. To switch roles, log out of both the app and ServiceNow, or use separate browser
@@ -430,7 +430,7 @@ These are historical manual/CLI/browser checks, not an automated regression suit
 | Initial incident-demo build | Passed |
 | New ERP build/type-check | Passed after static Fluent and numbering fixes |
 | Instance deployment | SDK install completed successfully, including final deployment |
-| dev337612 deployment | 2026-11-18 build passed and SDK install completed; target app `x_587205_bjit_erp`, sys_id `1693d17f9a444f38b16251c6a40a2e18`; app page `https://dev337612.service-now.com/x_587205_bjit_erp_app.do` |
+| dev337612 deployment | 2026-11-18 build passed and SDK install completed; target app `x_2315548_bjit_erp`, sys_id `1693d17f9a444f38b16251c6a40a2e18`; app page `https://dev337612.service-now.com/x_2315548_bjit_erp_app.do` |
 | Local availability | HTTP 200 on active development URL |
 | Screenshot comparisons | Discuss, grouped/selected assets, asset request, support form/kanban visually inspected |
 | Asset totals | Quantity 111, Remaining 74 verified |

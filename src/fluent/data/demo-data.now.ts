@@ -6,49 +6,49 @@ import { Record } from '@servicenow/sdk/core'
 export const locHeadStore = Record({
     $id: Now.ID['loc_head_store'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_location',
+    table: 'x_2315548_bjit_erp_location',
     data: { name: 'WH/OFFICE-1(HEAD OFFICE)/Asset Store00002', branch: 'office_1', is_store: true, active: true },
 })
 
 export const locHeadAsset = Record({
     $id: Now.ID['loc_head_asset'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_location',
+    table: 'x_2315548_bjit_erp_location',
     data: { name: 'WH/OFFICE-1(HEAD OFFICE)/Asset', branch: 'office_1', is_store: false, active: true },
 })
 
 export const locHeadL7 = Record({
     $id: Now.ID['loc_head_l7'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_location',
+    table: 'x_2315548_bjit_erp_location',
     data: { name: 'WH/OFFICE-1(HEAD OFFICE)/L-7', branch: 'office_1', is_store: false, active: true },
 })
 
 export const locCeoStore = Record({
     $id: Now.ID['loc_ceo_store'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_location',
+    table: 'x_2315548_bjit_erp_location',
     data: { name: 'WH/OFFICE-2(BARIDHARA CEO Office)/Asset Store', branch: 'office_2', is_store: true, active: true },
 })
 
 export const locCeoL2 = Record({
     $id: Now.ID['loc_ceo_l2'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_location',
+    table: 'x_2315548_bjit_erp_location',
     data: { name: 'WH/OFFICE-2(BARIDHARA CEO Office)/L-2', branch: 'office_2', is_store: false, active: true },
 })
 
 export const locCtg = Record({
     $id: Now.ID['loc_ctg'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_location',
+    table: 'x_2315548_bjit_erp_location',
     data: { name: 'WH/OFFICE-3(CHATTOGRAM)/Asset Store', branch: 'office_3', is_store: true, active: true },
 })
 
 Record({
     $id: Now.ID['asset_mouse00101'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Mouse',
         asset_number: 'Mouse00101',
@@ -66,7 +66,7 @@ Record({
 Record({
     $id: Now.ID['asset_keyboard00087'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Keyboard',
         asset_number: 'Keyboard00087',
@@ -84,7 +84,7 @@ Record({
 Record({
     $id: Now.ID['asset_headphone00045'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Headphone',
         asset_number: 'Headphone00045',
@@ -102,7 +102,7 @@ Record({
 Record({
     $id: Now.ID['asset_webcam00012'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Webcam',
         asset_number: 'Webcam00012',
@@ -120,7 +120,7 @@ Record({
 Record({
     $id: Now.ID['asset_cable00230'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'HDMI Cable',
         asset_number: 'Cable00230',
@@ -138,7 +138,7 @@ Record({
 Record({
     $id: Now.ID['asset_ups00031'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'UPS',
         asset_number: 'UPS00031',
@@ -156,7 +156,7 @@ Record({
 Record({
     $id: Now.ID['asset_desktop00211'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Desktop',
         asset_number: 'Desktop00211',
@@ -174,7 +174,7 @@ Record({
 Record({
     $id: Now.ID['asset_monitor00570'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Monitor',
         asset_number: 'Monitor00570',
@@ -192,7 +192,7 @@ Record({
 Record({
     $id: Now.ID['asset_monitor00322'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Monitor',
         asset_number: 'Monitor00322',
@@ -210,7 +210,7 @@ Record({
 Record({
     $id: Now.ID['asset_ram00140'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'RAM',
         asset_number: 'RAM00140',
@@ -228,7 +228,7 @@ Record({
 Record({
     $id: Now.ID['asset_ssd00077'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'SSD',
         asset_number: 'SSD00077',
@@ -246,7 +246,7 @@ Record({
 Record({
     $id: Now.ID['asset_ssd00078'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'SSD',
         asset_number: 'SSD00078',
@@ -264,7 +264,7 @@ Record({
 Record({
     $id: Now.ID['asset_nic00009'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Network Card',
         asset_number: 'NIC00009',
@@ -282,7 +282,7 @@ Record({
 Record({
     $id: Now.ID['asset_license00011'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Microsoft Office 365',
         asset_number: 'License00011',
@@ -300,7 +300,7 @@ Record({
 Record({
     $id: Now.ID['asset_license00024'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'JetBrains IntelliJ IDEA',
         asset_number: 'License00024',
@@ -318,7 +318,7 @@ Record({
 Record({
     $id: Now.ID['asset_license00031'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_asset',
+    table: 'x_2315548_bjit_erp_asset',
     data: {
         name: 'Windows 11 Pro',
         asset_number: 'License00031',
@@ -336,14 +336,14 @@ Record({
 export const channelGeneral = Record({
     $id: Now.ID['channel_general'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_channel',
+    table: 'x_2315548_bjit_erp_channel',
     data: { name: 'general', description: 'General announcements for all employees', channel_type: 'channel', is_public: true },
 })
 
 Record({
     $id: Now.ID['channel_canteen'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_channel',
+    table: 'x_2315548_bjit_erp_channel',
     data: {
         name: 'BJIT_Canteen_General_Administration',
         description: 'Canteen and general administration updates',
@@ -355,7 +355,7 @@ Record({
 Record({
     $id: Now.ID['msg_general_welcome'],
     $meta: { installMethod: 'demo' },
-    table: 'x_587205_bjit_erp_message',
+    table: 'x_2315548_bjit_erp_message',
     data: {
         channel: channelGeneral,
         message_type: 'comment',
