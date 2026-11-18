@@ -1,0 +1,107 @@
+import '@servicenow/sdk/global'
+import { Table, StringColumn, ChoiceColumn, ReferenceColumn, DateColumn, MultiLineTextColumn } from '@servicenow/sdk/core'
+
+export const x_587205_bjit_erp_employee = Table({
+    name: 'x_587205_bjit_erp_employee',
+    label: 'ERP Employee',
+    display: 'employee_number',
+    allowWebServiceAccess: true,
+    actions: { read: true },
+    schema: {
+        user: ReferenceColumn({ label: 'Related User', referenceTable: 'sys_user', mandatory: true }),
+        employee_number: StringColumn({ label: 'Employee Number', maxLength: 40, mandatory: true }),
+        job_title: StringColumn({ label: 'Job Title', maxLength: 160 }),
+        department: ReferenceColumn({ label: 'Department', referenceTable: 'cmn_department' }),
+        manager: ReferenceColumn({ label: 'Manager', referenceTable: 'sys_user' }),
+        work_email: StringColumn({ label: 'Work Email', maxLength: 160 }),
+        work_mobile: StringColumn({ label: 'Work Mobile', maxLength: 40 }),
+        work_phone: StringColumn({ label: 'Work Phone', maxLength: 40 }),
+        work_address: MultiLineTextColumn({ label: 'Work Address', maxLength: 1000 }),
+        branch: StringColumn({ label: 'Branch', maxLength: 120 }),
+        office_location: StringColumn({ label: 'Office Location', maxLength: 160 }),
+        employee_type: ChoiceColumn({
+            label: 'Employee Type',
+            dropdown: 'dropdown_without_none',
+            default: 'employee',
+            choices: {
+                employee: { label: 'Employee', sequence: 0 },
+                contractor: { label: 'Contractor', sequence: 1 },
+                intern: { label: 'Intern', sequence: 2 },
+            },
+        }),
+    },
+})
+
+export const x_587205_bjit_erp_employee_private = Table({
+    name: 'x_587205_bjit_erp_employee_private',
+    label: 'ERP Employee Private Details',
+    display: 'employee',
+    allowWebServiceAccess: true,
+    actions: { read: true },
+    schema: {
+        employee: ReferenceColumn({ label: 'Employee', referenceTable: 'x_587205_bjit_erp_employee', mandatory: true }),
+        nationality: StringColumn({ label: 'Nationality', maxLength: 80 }),
+        identification_number: StringColumn({ label: 'Identification Number', maxLength: 80 }),
+        passport_number: StringColumn({ label: 'Passport Number', maxLength: 80 }),
+        national_id: StringColumn({ label: 'National ID', maxLength: 80 }),
+        tin_number: StringColumn({ label: 'TIN Number', maxLength: 80 }),
+        bank_account_number: StringColumn({ label: 'Bank Account Number', maxLength: 80 }),
+        ups_account_no: StringColumn({ label: 'UPS Account No.', maxLength: 80 }),
+        private_address: StringColumn({ label: 'Private Address', maxLength: 300 }),
+        home_address: MultiLineTextColumn({ label: 'Home Address', maxLength: 1000 }),
+        present_address: MultiLineTextColumn({ label: 'Present Address', maxLength: 1000 }),
+        emergency_contact: StringColumn({ label: 'Emergency Contact Number', maxLength: 60 }),
+        gender: ChoiceColumn({ label: 'Gender', dropdown: 'dropdown_with_none', choices: {
+            male: { label: 'Male', sequence: 0 }, female: { label: 'Female', sequence: 1 }, other: { label: 'Other', sequence: 2 },
+        } }),
+        marital_status: ChoiceColumn({ label: 'Marital Status', dropdown: 'dropdown_with_none', choices: {
+            single: { label: 'Single', sequence: 0 }, married: { label: 'Married', sequence: 1 }, other: { label: 'Other', sequence: 2 },
+        } }),
+        religion: StringColumn({ label: 'Religion', maxLength: 80 }),
+        date_of_birth: DateColumn({ label: 'Date of Birth' }),
+        blood_group: StringColumn({ label: 'Blood Group', maxLength: 20 }),
+        nominee_name: StringColumn({ label: 'Nominee Name', maxLength: 160 }),
+        nominee_relationship: StringColumn({ label: 'Nominee Relationship', maxLength: 80 }),
+        nominee_contact: StringColumn({ label: 'Nominee Contact', maxLength: 60 }),
+        employment_status: ChoiceColumn({ label: 'Employment Status', dropdown: 'dropdown_without_none', default: 'regular', choices: {
+            regular: { label: 'Regular', sequence: 0 }, probation: { label: 'Probation', sequence: 1 }, contract: { label: 'Contract', sequence: 2 }, resigned: { label: 'Resigned', sequence: 3 },
+        } }),
+        job_rank: StringColumn({ label: 'Job Rank', maxLength: 60 }),
+        job_role: StringColumn({ label: 'Job Role', maxLength: 160 }),
+        resource_type: StringColumn({ label: 'Resource Type', maxLength: 80 }),
+        join_date: DateColumn({ label: 'Join Date' }),
+        confirmation_date: DateColumn({ label: 'Confirmation Date' }),
+        resignation_date: DateColumn({ label: 'Resign / Release / Transfer Date' }),
+        resignation_reason: MultiLineTextColumn({ label: 'Resign Reason', maxLength: 1000 }),
+        release_type: StringColumn({ label: 'Release Type', maxLength: 80 }),
+        employment_location_date: DateColumn({ label: 'Employment Location Date' }),
+        employee_old_id: StringColumn({ label: 'Employee Old ID', maxLength: 60 }),
+        biometric_id: StringColumn({ label: 'Biometric Device ID', maxLength: 60 }),
+        promotion_date: DateColumn({ label: 'Promotion Date' }),
+        working_hours: StringColumn({ label: 'Working Hours', maxLength: 100 }),
+        platforms: MultiLineTextColumn({ label: 'Platforms', maxLength: 1000 }),
+        teams: MultiLineTextColumn({ label: 'Teams', maxLength: 1000 }),
+    },
+})
+
+export const x_587205_bjit_erp_employee_item = Table({
+    name: 'x_587205_bjit_erp_employee_item',
+    label: 'ERP Employee History Item',
+    display: 'title',
+    allowWebServiceAccess: true,
+    actions: { read: true },
+    schema: {
+        employee: ReferenceColumn({ label: 'Employee', referenceTable: 'x_587205_bjit_erp_employee', mandatory: true }),
+        category: ChoiceColumn({ label: 'Category', dropdown: 'dropdown_without_none', choices: {
+            qualification: { label: 'Academic Qualification', sequence: 0 }, experience: { label: 'Work Experience', sequence: 1 },
+            project: { label: 'Project History', sequence: 2 }, certification: { label: 'Certification', sequence: 3 },
+            training: { label: 'Training', sequence: 4 }, promotion: { label: 'Promotion History', sequence: 5 }, technical: { label: 'Technical Skill', sequence: 6 },
+        } }),
+        title: StringColumn({ label: 'Title / Role', maxLength: 200, mandatory: true }),
+        organization: StringColumn({ label: 'Institute / Organization', maxLength: 200 }),
+        major: StringColumn({ label: 'Major / Technology', maxLength: 200 }),
+        responsibility: MultiLineTextColumn({ label: 'Responsibility / Details', maxLength: 2000 }),
+        start_date: DateColumn({ label: 'Start Date' }),
+        end_date: DateColumn({ label: 'End Date' }),
+    },
+})

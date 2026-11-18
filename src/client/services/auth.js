@@ -1,4 +1,5 @@
 import { DEPT_FIELDS } from '../utils/fields'
+import { ROLE_IDS } from '../utils/constants'
 
 const KEY = 'bjit_erp_auth'
 let sessionUserId = null
@@ -78,21 +79,37 @@ async function lookupUserName(email) {
     return (await res.json()).result?.[0]?.user_name || null
 }
 
-async function fetchIsManager(user, basic) {
+async function fetchUserRoleIds(user, basic) {
     const qs = new URLSearchParams({
-        sysparm_query: `user=${user.sys_id.value}^role.nameINadmin,${'x_587205_bjit_erp.manager'}`,
-        sysparm_fields: 'sys_id',
-        sysparm_limit: '1',
+        // Query this user's rows only (the instance ACL permits users to read only their own rows),
+        // then filter by role locally. Combined user+role conditions return no rows on this instance.
+        sysparm_query: `user=${user.sys_id.value}`,
+        sysparm_fields: 'sys_id,role',
+        sysparm_limit: '250',
     })
+    const res = await fetch(`/api/now/table/sys_user_has_role?${qs}`, {
+        headers: { Accept: 'application/json', Authorization: `Basic ${basic}` },
+        credentials: 'omit',
+    })
+    if (!res.ok) return null
+    const rows = (await res.json()).result || []
+    return new Set(rows.map((row) => row.role).filter(Boolean))
+}
+
+export async function refreshAuthorization(auth) {
+    if (!auth?.user || !auth?.basic) return auth
     try {
-        const res = await fetch(`/api/now/table/sys_user_has_role?${qs}`, {
-            headers: { Accept: 'application/json', Authorization: `Basic ${basic}` },
-            credentials: 'omit',
-        })
-        if (!res.ok) return null
-        return ((await res.json()).result || []).length > 0
+        const roleIds = await fetchUserRoleIds(auth.user, auth.basic)
+        const isManager = roleIds === null ? null : roleIds.has(ROLE_IDS.admin) || roleIds.has(ROLE_IDS.manager)
+        const isHr = roleIds !== null && (roleIds.has(ROLE_IDS.admin) || roleIds.has(ROLE_IDS.hr))
+        const isEmployee = isHr || (roleIds !== null && roleIds.has(ROLE_IDS.employee))
+        const refreshed = { ...auth, isManager, isHr, isEmployee }
+        saveAuth(refreshed)
+        return refreshed
     } catch {
-        return null
+        const refreshed = { ...auth, isManager: null, isHr: false, isEmployee: false }
+        saveAuth(refreshed)
+        return refreshed
     }
 }
 
@@ -111,8 +128,7 @@ export async function login(identifier, password) {
     const typed = login.toLowerCase()
     const matches = user && [user.user_name, user.email].some((f) => (f?.value || '').toLowerCase() === typed)
     if (!matches) throw new Error('Wrong login/password')
-    const isManager = await fetchIsManager(user, basic)
-    const auth = { basic, user, isManager }
+    const auth = await refreshAuthorization({ basic, user })
     saveAuth(auth)
     return auth
 }

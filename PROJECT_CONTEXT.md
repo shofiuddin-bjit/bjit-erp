@@ -21,7 +21,7 @@ Evidence boundaries:
 
 - Implementation descriptions were checked against the local source on 2026-11-18.
 - Deployment, instance configuration, account setup, and runtime test results below
-  describe actions and observations from 2026-11-17.
+  describe actions and observations from 2026-11-17 to 2026-11-18.
 - This documentation change did not redeploy, retest the application, or recheck
   account state on the instance.
 
@@ -112,6 +112,7 @@ information, not a guarantee that a server is running now.
 | Discuss | [Discuss.jsx](src/client/pages/discuss/Discuss.jsx) |
 | Assets | [asset pages](src/client/pages/assets) |
 | Support | [support pages](src/client/pages/support) |
+| Employee management | [EmployeeManagement.jsx](src/client/pages/employees/EmployeeManagement.jsx) |
 | Fluent data model | [tables](src/fluent/tables) |
 | Roles and ACLs | [roles-acls.now.ts](src/fluent/security/roles-acls.now.ts) |
 | Server workflows | [workflow.now.ts](src/fluent/business-rules/workflow.now.ts) |
@@ -217,6 +218,33 @@ Server rules:
   manager hierarchy.
 - Ticket numbers follow `SUPP/YYYY/MM/sequence`, for example `SUPP/2026/11/1001`.
 - Creation and status changes generate chatter notifications.
+
+### Employee management
+
+- Department-filtered directory with Odoo-style employee cards and list view.
+- Opening Employees defaults to the removable `Me` filter and queries only the
+  signed-in user's active `sys_user` record. Removing `Me` loads the directory;
+  reapplying it restores the self card. Cards use a compact, fixed-width layout
+  with a photo, title, full department hierarchy, email, and phone.
+- Employee directory and profile styles are imported directly from
+  `employees.css`. The SDK embeds these styles into the JavaScript bundle rather
+  than relying on the shared shell stylesheet. The directory uses a white rail, compact
+  374px photo cards, wrapped department paths, and responsive mobile filters.
+- Employee top navigation matches the references; Skill Review and Card Request
+  are clearly marked as future modules.
+- Employee profile tabs for work information, private information, HR settings,
+  qualifications, experience, project history, certifications, training,
+  promotions, and technical skills.
+- Users with the Employee role can create and fully manage employee profiles,
+  including every employee's private, HR, and history data.
+- Employee module UI access no longer depends on the client-side role lookup;
+  ServiceNow table ACLs enforce access for the Employee role.
+- Private and HR information is stored in a separate table from the public
+  directory profile, with row-level ACL checks on the ServiceNow instance.
+- Employee profiles require a related `sys_user`; creating a ServiceNow login
+  account and assigning its Employee role remains a separate user-provisioning step.
+  The Employee role includes `snc_basic_auth_api_access` so that accounts granted
+  the app role can authenticate through this instance's Basic-auth REST login.
 - Set Pending records a pending reason; there is no separate Pending state.
 
 ### Chatter and attachments
@@ -230,15 +258,16 @@ Server rules:
 ### Placeholder apps
 
 Calendar, Contacts, Dashboards, Payroll, Project, Surveys, Medical Benefits,
-Daily Report, Intranet, Provident Fund, UPS, Gate Pass, Employees, Attendances,
+Daily Report, Intranet, Provident Fund, UPS, Gate Pass, Attendances,
 Time Off, and Meal Management display an unavailable/roadmap page.
 
-The profile link currently leads to the Employees placeholder.
+The profile link currently leads to the Employees directory.
 
 ## 6. Data model
 
-All six tables enable web-service access. Existing `sys_user` records provide
-employee identities and manager/department information.
+All nine application tables enable web-service access. Existing `sys_user`
+records provide login identities and department/manager references for employee
+profiles.
 
 | Table | Purpose and main fields |
 | --- | --- |
@@ -248,6 +277,9 @@ employee identities and manager/department information.
 | `x_587205_bjit_erp_ticket` | Number, title, requester, date, category/type, branch/location, priority, description, three managers, reasons, state |
 | `x_587205_bjit_erp_channel` | Name, description, channel/chat type, public flag, members |
 | `x_587205_bjit_erp_message` | Body, author, type, channel, related table/record/name, inbox recipients, starred-by and read-by lists |
+| `x_587205_bjit_erp_employee` | Directory profile, related user, employee number, title, department, manager, work contacts, branch and office |
+| `x_587205_bjit_erp_employee_private` | Private contact/identity, family, employment status and HR details |
+| `x_587205_bjit_erp_employee_item` | Qualifications, experience, project/certification/training/promotion history and technical skills |
 
 Choice labels are also mirrored in the client constants. Keep Fluent choices,
 client choices, forms, and business-rule state names consistent when changing them.
@@ -276,6 +308,8 @@ records: the UI counts records, while quantities can be greater than one.
 | --- | --- |
 | `x_587205_bjit_erp.user` | Employee: Discuss, asset requests, support tickets |
 | `x_587205_bjit_erp.manager` | Manager: contains employee role; master-data maintenance, approvals, ticket processing |
+| `x_587205_bjit_erp.employee` | Employee: contains app user and Basic Auth API roles; full CRUD access to all employee, private, and history records |
+| `x_587205_bjit_erp.hr` | HR: contains employee role; also has full Employee-module access |
 | `admin` | Platform administrator; application ACLs allow admin override |
 | `snc_basic_auth_api_access` | Instance-level permission required for Basic-auth API login on this instance |
 
@@ -286,10 +320,12 @@ Current table ACL design:
 - Requests, tickets, channels, and messages allow employee create/write.
 - Delete requires manager permission.
 - Workflow rules additionally guard specific manager-only state changes.
+- Employee, private, and history tables grant full CRUD to the Employee role (including HR/manager roles that inherit Employee).
 
-These are table-level permissions, not comprehensive record-ownership or private
-conversation ACLs. A client-side Me filter is a view filter, not an authorization
-boundary. Do not treat this initial implementation as production-hardened.
+Other application tables retain their initial table-level permissions, not
+comprehensive record-ownership or private conversation ACLs. A client-side Me
+filter is a view filter, not an authorization boundary. Do not treat this initial
+implementation as production-hardened.
 
 When manager-role lookup fails, the client currently treats the result as unknown
 and shows manager controls. An employee seeing CREATE does not mean they have
@@ -342,9 +378,10 @@ users and roles on that instance before login testing.
 | Username | Email | Application role | Notes |
 | --- | --- | --- | --- |
 | `bjit_manager_test1` | `bjit_manager_test1@example.com` | manager | Display name BJIT Manager Test 1; title IT Manager; active; granted `snc_basic_auth_api_access`; created 2026-11-18 |
+| `bjit_hr_module_test_20261118` | `bjit.hr.module.test.20261118@example.invalid` | HR, Employee | Synthetic active HR module test account; linked to employee profile `TEST-HR-20261118`; has direct Basic Auth API access; created 2026-11-18 |
 
-The temporary password was shared directly with the user and is not stored here.
-Rotate it after testing.
+Temporary passwords were shared directly with the user and are not stored here.
+Rotate them after testing.
 
 | Username | Email | Application role | Notes |
 | --- | --- | --- | --- |
@@ -431,6 +468,11 @@ These are historical manual/CLI/browser checks, not an automated regression suit
 | New ERP build/type-check | Passed after static Fluent and numbering fixes |
 | Instance deployment | SDK install completed successfully, including final deployment |
 | dev337612 deployment | 2026-11-18 build passed and SDK install completed; target app `x_587205_bjit_erp`, sys_id `1693d17f9a444f38b16251c6a40a2e18`; app page `https://dev337612.service-now.com/x_587205_bjit_erp_app.do` |
+| Current deployment | 2026-11-18 `npm run build` passed; `npm run deploy` completed successfully against dev337612; SDK reported app sys_id `1693d17f9a444f38b16251c6a40a2e18` and rollback context `17039b36c3e497502416d50d05013113`; no post-deployment browser verification performed |
+| Employee management deployment | 2026-11-18 build passed; SDK install completed on dev337612 with demo data disabled; HR/Employee roles, all three employee tables, and 12 employee ACL records verified through SDK queries |
+| Employee role inheritance | Employee includes `snc_basic_auth_api_access`; HR and manager both contain Employee; `bjit_manager_test1` resolves to Employee on dev337612 |
+| HR module test setup | 2026-11-18 synthetic HR/Employee account and linked employee profile created; active user, roles, profile, and direct Basic Auth API role verified through SDK queries; direct Basic Auth check could not complete because the HTTPS connection closed; portal browser test remains outstanding |
+| Employee-role full access | Build passed and SDK install completed on dev337612; active read/create/write/delete ACLs on employee, private, and history tables are associated with the Employee role; row-level private/history restrictions are removed; non-admin browser confirmation remains outstanding |
 | Local availability | HTTP 200 on active development URL |
 | Screenshot comparisons | Discuss, grouped/selected assets, asset request, support form/kanban visually inspected |
 | Asset totals | Quantity 111, Remaining 74 verified |
@@ -491,6 +533,16 @@ These are context and future work, not additional completed features:
     demo-data file; another instance will require account/role setup.
 16. The old incident UI page was removed from source; removal of every previously
     deployed legacy artifact from the instance was not independently verified.
+17. HR employee profiles link to existing ServiceNow users. User-account
+    provisioning and Employee/HR role assignment are not handled by the employee
+    profile form.
+18. The deployed directory, profile, private-record ACL, and history workflows
+    have not yet been browser-tested under separate HR, employee-self, and
+    employee-other accounts.
+19. The Employee module now skips the client-side Employee/HR role gate and relies
+    on server-side ACLs for the Employee role. That role has full access to all
+    employee directory, private, HR, and history records. This includes highly
+    sensitive employee data. Non-admin portal verification is still outstanding.
 
 Before calling a future change complete, build it, run focused checks for the
 changed behavior, record deployment status, and update this document.
@@ -510,6 +562,17 @@ changed behavior, record deployment status, and update this document.
 | 2026-11-18 | Created this living project context document | Documentation only; source/config inspected; no app changes |
 | 2026-11-18 | Initialized and deployed BJIT ERP on dev337612 using the instance vendor prefix | Build passed; SDK install completed with demo data; local scope/table/role/page references updated; other original-instance test accounts need verification here |
 | 2026-11-18 | Created BJIT Manager Test 1 on dev337612 | Active account verified with manager, included employee, and Basic Auth API roles; temporary password set and shared directly |
+| 2026-11-18 | Implemented and deployed employee management | Employee/HR roles, Odoo-style directory/profile UI, employee/private/history tables, row-level ACLs and Basic Auth role inheritance; build/install passed and remote roles/tables/ACLs verified |
+| 2026-11-18 | Fixed Employee module false access denial | Role checks now match known role sys_ids and request only role assignment record sys_ids; own-role-row ACL remains restricted to the logged-in user; build/install passed; assigned Employee and HR roles and active ACL verified on dev337612; browser test under that account remains outstanding |
+| 2026-11-18 | Made HR employee permissions explicit | Added HR directly to own-role lookup, employee directory, private details, and history read ACLs alongside Employee; build/install passed and app-scoped ACLs verified active on dev337612; non-admin portal confirmation remains outstanding |
+| 2026-11-18 | Created synthetic HR module test account | Added active `bjit_hr_module_test_20261118` with Employee/HR roles and inherited Basic Auth access, plus a minimal linked employee profile; SDK queries verified records; login and browser portal checks remain outstanding |
+| 2026-11-18 | Fixed portal role lookup query | Instance Table API returned no rows for combined user+role conditions on `sys_user_has_role`, while GlideRecord confirmed the user's role rows; client now fetches only the current user's role rows and filters locally; build passed and SDK install completed on dev337612; live browser verification remains pending |
+| 2026-11-18 | Granted direct Basic Auth access to HR module test account | Added direct `snc_basic_auth_api_access` assignment in addition to the inherited assignment; verified the direct role row through SDK query; portal login verification pending |
+| 2026-11-18 | Expanded Employee module access to Employee role | Removed the client-side role gate and granted Employee-role full CRUD on employee, private, HR, and history tables; build passed, SDK install completed, and remote active ACL role mappings were verified; non-admin browser confirmation remains outstanding |
+| 2026-11-18 | Built and deployed current working tree | `npm run build` passed; `npm run deploy` completed on dev337612; SDK provided app and rollback links; no post-deployment browser verification performed |
+
+| 2026-11-18 | Added employee self-card landing | Default removable `Me` filter, server-side self lookup, pagination reset, stale-response protection, and reference-sized cards; build and deployment to dev337612 completed; no post-deployment browser verification |
+| 2026-11-18 | Refined Odoo employee directory styling | Employee styles now ship inline with the component JavaScript instead of the shared stylesheet; white department rail, 374px photo cards, wrapped department paths, keyboard focus, and mobile filters; build passed and inline styles confirmed in output; not deployed; visual browser verification unavailable in this session |
 
 ### Template for the next implementation update
 

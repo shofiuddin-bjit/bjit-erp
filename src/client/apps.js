@@ -21,6 +21,6 @@ export const APPS = [
     { id: 'meal', label: 'Meal Management', icon: 'utensils', color: '#2f6fb3' },
 ]
 
-export const IMPLEMENTED_APPS = new Set(['discuss', 'support', 'asset'])
+export const IMPLEMENTED_APPS = new Set(['discuss', 'support', 'asset', 'employees'])
 
 export const appById = (id) => APPS.find((a) => a.id === id) || APPS[0]
