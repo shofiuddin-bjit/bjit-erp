@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { ErpProvider } from './context'
 import { APPS, IMPLEMENTED_APPS, appById } from './apps'
-import { clearAuth, detectSessionUser, getAuth } from './services/auth'
+import { clearAuth, detectSessionUser, getAuth, refreshAuthorization } from './services/auth'
 import { navigate, useRoute } from './utils/router'
 import TopBar from './components/layout/TopBar'
 import { AppsMenu, Sidebar } from './components/layout/Sidebar'
@@ -16,6 +16,7 @@ import AssetForm from './pages/assets/AssetForm'
 import AssetReport from './pages/assets/AssetReport'
 import TicketViews from './pages/support/TicketViews'
 import TicketForm from './pages/support/TicketForm'
+import EmployeeManagement from './pages/employees/EmployeeManagement'
 import './app.css'
 
 const MENUS = {
@@ -30,12 +31,18 @@ const MENUS = {
         { label: 'Report', items: [{ label: 'Asset Report', onClick: () => navigate({ app: 'asset', view: 'report' }) }] },
     ],
     support: [{ label: 'Tickets', onClick: () => navigate({ app: 'support' }) }],
+    employees: [
+        { label: 'Employees', onClick: () => navigate({ app: 'employees' }) },
+        { label: 'Skill Review', onClick: () => navigate({ app: 'employees', view: 'skill_review' }) },
+        { label: 'Card Request', onClick: () => navigate({ app: 'employees', view: 'card_request' }) },
+    ],
 }
 
 function Content({ route, app }) {
     const key = [route.view, route.id, route.asset, route.copy, route.n, route.filter].join('|')
     if (!IMPLEMENTED_APPS.has(app.id)) return <Placeholder app={app} />
     if (app.id === 'discuss') return <Discuss route={route} />
+    if (app.id === 'employees') return <EmployeeManagement route={route} />
     if (app.id === 'asset') {
         if (route.view === 'request') return <AssetRequestForm key={key} route={route} />
         if (route.view === 'requests') return <AssetRequestList key={key} route={route} />
@@ -73,7 +80,9 @@ export default function App() {
     const [ready, setReady] = useState(false)
 
     useEffect(() => {
-        detectSessionUser().finally(() => setReady(true))
+        const existing = getAuth()
+        const roleRefresh = existing?.basic ? refreshAuthorization(existing).then(setAuth).catch(() => {}) : Promise.resolve()
+        Promise.all([detectSessionUser(), roleRefresh]).finally(() => setReady(true))
     }, [])
 
     const logout = useCallback(() => {

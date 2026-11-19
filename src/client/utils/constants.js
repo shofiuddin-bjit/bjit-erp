@@ -1,5 +1,13 @@
 export const SCOPE = 'x_2315548_bjit_erp'
 
+// Instance role sys_ids for reliable client-side authorization checks.
+export const ROLE_IDS = {
+    admin: '2831a114c611228501d4ea6c309d626d',
+    employee: 'aa16fb7281d142458da438666d23922f',
+    hr: 'bfd3e4cdc29a41d189b65fb7343d7d41',
+    manager: '06885cb436e64ebf9ff30b788eaf746d',
+}
+
 export const TABLES = {
     asset: `${SCOPE}_asset`,
     assetReq: `${SCOPE}_asset_req`,
@@ -7,6 +15,9 @@ export const TABLES = {
     location: `${SCOPE}_location`,
     channel: `${SCOPE}_channel`,
     message: `${SCOPE}_message`,
+    employee: `${SCOPE}_employee`,
+    employeePrivate: `${SCOPE}_employee_private`,
+    employeeItem: `${SCOPE}_employee_item`,
 }
 
 // Mirrors the ChoiceColumn definitions in src/fluent/tables (order = sequence)

@@ -193,6 +193,58 @@ declare global {
                         table: 'sys_security_acl'
                         id: 'b7500a159d464f408e87ed24676a9371'
                     }
+                    x_2315548_bjit_erp_employee_create: {
+                        table: 'sys_security_acl'
+                        id: '9db9e6152ccb452d90ef91356e225242'
+                    }
+                    x_2315548_bjit_erp_employee_delete: {
+                        table: 'sys_security_acl'
+                        id: 'f60061ca14134a87a2c6c62aedde5572'
+                    }
+                    x_2315548_bjit_erp_employee_item_create: {
+                        table: 'sys_security_acl'
+                        id: '91404ad5045844e68fc987f217e99425'
+                    }
+                    x_2315548_bjit_erp_employee_item_delete: {
+                        table: 'sys_security_acl'
+                        id: '6ef4e1e521f643478fd938b00b20e82b'
+                    }
+                    x_2315548_bjit_erp_employee_item_read: {
+                        table: 'sys_security_acl'
+                        id: '8b6fe3340b644baab7bc7910df1fdf81'
+                    }
+                    x_2315548_bjit_erp_employee_item_write: {
+                        table: 'sys_security_acl'
+                        id: 'af9aeb9bc5134fe9b38abe503426051d'
+                    }
+                    x_2315548_bjit_erp_employee_private_create: {
+                        table: 'sys_security_acl'
+                        id: 'cd30cbda82514c00bafdc1244f9674a0'
+                    }
+                    x_2315548_bjit_erp_employee_private_delete: {
+                        table: 'sys_security_acl'
+                        id: 'f2eec7c9c2f84c189ff4b1f319c2a047'
+                    }
+                    x_2315548_bjit_erp_employee_private_read: {
+                        table: 'sys_security_acl'
+                        id: '4c7b57d1faa046d9a4d1388d037c7f74'
+                    }
+                    x_2315548_bjit_erp_employee_private_write: {
+                        table: 'sys_security_acl'
+                        id: 'f08878f34cda4bccb8552b14abd84ca1'
+                    }
+                    x_2315548_bjit_erp_employee_read: {
+                        table: 'sys_security_acl'
+                        id: '1d0b9e4df7dc4454adc79ece324530d3'
+                    }
+                    x_2315548_bjit_erp_employee_self_role_read: {
+                        table: 'sys_security_acl'
+                        id: '7768a14173c74c648020e082d641d389'
+                    }
+                    x_2315548_bjit_erp_employee_write: {
+                        table: 'sys_security_acl'
+                        id: '72b2ff1a91ea417faa9a0a773886f090'
+                    }
                     x_2315548_bjit_erp_location_create: {
                         table: 'sys_security_acl'
                         id: 'bcb73e1c98ad4939829e8080d1f941fb'
@@ -252,6 +304,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: '02a8f6697d7c4da59ae3d31a5e5dd2b8'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'gender'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '02d0d93fb7ba43a8a61b5f6175e97b7d'
                         key: {
@@ -263,6 +323,26 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '033d9606e73b497dbbb60a34729c06ff'
+                        key: {
+                            sys_security_acl: '72b2ff1a91ea417faa9a0a773886f090'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'ua_table_licensing_config'
+                        id: '03bd0dde6d3541a2b5bce065f13e3172'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '03dfcb6ea438484785eefe967ae2b54d'
                         key: {
@@ -271,6 +351,15 @@ declare global {
                             value: 'network'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '041d6693b7bb4059b32a5881a8634457'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'release_type'
+                            language: 'en'
                         }
                     },
                     {
@@ -332,10 +421,39 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '08d261eae8f34584a83137d80efed9f9'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'gender'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '08f98596c1a4406eb54266483306a55e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            value: 'promotion'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '090ad312e31d400c8f053517a99ab672'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'state'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '09a34e30ce5743398588330fb6c222c8'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'bank_account_number'
                             language: 'en'
                         }
                     },
@@ -358,6 +476,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '0aef5398dacb4a77a7bdbb293fe9103a'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_address'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '0b233468193842e397e6e8bb04f34c6f'
                         key: {
@@ -369,11 +495,47 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '0b7116bd3ffb4bfa95e33e04bc334390'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employee_old_id'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '0bbd3621c1e64c7096d1e50818e1baf9'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role_contains'
+                        id: '0c37e1eeb82f4329a19aded3d030a14c'
+                        key: {
+                            role: {
+                                id: '06885cb436e64ebf9ff30b788eaf746d'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.manager'
+                                }
+                            }
+                            contains: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '0c861e4160fe4108b6e0ab7642bde6cc'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'branch'
+                            language: 'en'
                         }
                     },
                     {
@@ -404,11 +566,29 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '0ee86cd9c8994ed2a51600dc3b31cacc'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'department'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sn_glider_source_artifact_m2m'
                         id: '0f0e9ef38d7a4287ad677930c18f1ff0'
                         key: {
                             application_file: '14b028e1a6ad424a96caea0231a49cd4'
                             source_artifact: '7a6e18c36da44f42845a1e335ea82b0c'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '0fc3a5f486b1430a94b3f057d649e200'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'major'
+                            language: 'en'
                         }
                     },
                     {
@@ -420,6 +600,14 @@ declare global {
                             value: 'office_3'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '10610771b8df4602a96ff3712bc3cca1'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'private_address'
                         }
                     },
                     {
@@ -478,11 +666,27 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: '15524614f5e64472861c228cd8c33383'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_type'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '1593e661bb864d44be5ddab7ffc3ce94'
                         key: {
                             name: 'x_2315548_bjit_erp_asset_req'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '16215870a7d049dc8bda5d0d9a9f6a6e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nominee_contact'
                         }
                     },
                     {
@@ -511,6 +715,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '18e47808a6084325a6581ea9c46b88ce'
+                        key: {
+                            sys_security_acl: 'f60061ca14134a87a2c6c62aedde5572'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sn_glider_source_artifact_m2m'
                         id: '1920ba5f24c34ca39aa65de455b9c368'
                         deleted: true
@@ -529,11 +746,27 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '1a3a59bf89824b86bb41cf55da47773e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'resignation_reason'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '1b410b4f24e044d5810430b089a8e2df'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'title'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_db_object'
+                        id: '1b5199a4433e43d1b177e107fa849bea'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
                         }
                     },
                     {
@@ -563,6 +796,33 @@ declare global {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'request_date'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '1d2c0f35a26d4b0b9d232897aa029158'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'join_date'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '1ede49891e844387b15438a1aa40eead'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            value: 'training'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '1facbc3c94b04ffbb08791d7c021fbe7'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'job_rank'
                         }
                     },
                     {
@@ -617,6 +877,17 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '2463280725d34948be69f6014f2725bb'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_status'
+                            value: 'regular'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '254429f9007747b0aff59343a613118e'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
@@ -657,6 +928,31 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '26b48ac3fc2a4f7ba364b630c685c0af'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'organization'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '270b908ca3214204aa79a280fbae56da'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'resource_type'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'ua_table_licensing_config'
+                        id: '28f7a7dbf4eb48e8909c0aa2e243e091'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '29082fdcc5eb446cb0d0bbd0eddadcee'
                         key: {
@@ -694,6 +990,25 @@ declare global {
                             name: 'x_2315548_bjit_erp_message'
                             element: 'needaction'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '2c789e5705cb4b2cbb2d41f43ff8a703'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_status'
+                            value: 'probation'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '2d09500d50404556a1c07577a5459313'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'branch'
                         }
                     },
                     {
@@ -760,6 +1075,24 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '2f3fcc2a3ffd4dc68c70e5a298a3593e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'religion'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '30fee51eb4c7431595cfd31dfeef86f5'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'office_location'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '324bf397cb674314afabd5bea12bd2ea'
                         key: {
@@ -768,6 +1101,15 @@ declare global {
                             value: 'completed'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '32ff6071854340e6804963958da9255a'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'NULL'
+                            language: 'en'
                         }
                     },
                     {
@@ -799,11 +1141,61 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '34743ca0e3a149d4834e9e41872092d0'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '34db161154fb4cd186a8fa003eab607c'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            value: 'qualification'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '34e68fc0a42c43e3b064ccc54c59ce15'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'marital_status'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '34ec3135a96941f19b540af523c4b22e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'confirmation_date'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '3651c052d03f45b7a1f533d5e0339245'
                         key: {
                             name: 'x_2315548_bjit_erp_message'
                             element: 'starred_by'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '3756e42b2296460189ef5477d62b1107'
+                        key: {
+                            sys_security_acl: '7768a14173c74c648020e082d641d389'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
                         }
                     },
                     {
@@ -815,6 +1207,32 @@ declare global {
                             value: 'peripherals'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '38cd476c361446848dfe691c007f2e0b'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'date_of_birth'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '391df002de264613babb61c9c208c5ed'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'home_address'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '393c0b45aa9443d4ae53ca08f1a300ed'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nominee_name'
+                            language: 'en'
                         }
                     },
                     {
@@ -872,6 +1290,25 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '3c9d888f85454a4f8ee7da4dec6bb5d5'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'ups_account_no'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '3da07704599344728f4e45f665d1ece2'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            value: 'project'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '3e42186187cd4504b666dc20b42b8fa0'
                         key: {
@@ -910,12 +1347,55 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '3f78c76ba6574350b29597eaa1a3b76f'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_number'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '3fb71bce9d5a41b9b41540f178fd0890'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'marital_status'
+                            value: 'single'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role'
+                        id: '3fcdca7b0efe44b5a45ac4fa4636a4fa'
+                        key: {
+                            name: 'x_2315548_bjit_erp.hr'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '4003d8cdf55240b1a4617c031956f985'
                         key: {
                             name: 'x_2315548_bjit_erp_message'
                             element: 'model'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '4078af0d5a134fac99438efddfd1954b'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'manager'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '41f24e85831c4bf2aebca8830bd8af54'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_email'
                         }
                     },
                     {
@@ -928,11 +1408,28 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '43667a83cee84643ae303ac13602c23a'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_mobile'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '438f452647524fca9ef9fec23f53f976'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'description'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '43b2d198740c470c90c4fe13273b6c91'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
                         }
                     },
                     {
@@ -974,6 +1471,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '4628aead4f0c46de9d1805b8273d3697'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'job_title'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '4635cdad3cbf40e4bd0444808245e5eb'
                         key: {
@@ -1005,11 +1511,46 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '48ca36a9f8774a99b3e7a9410856587d'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'biometric_id'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '497d7c8b9a624f98addc8555319fbab9'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'resignation_date'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '49afde4bbf554cb4a0374d96e918d321'
                         key: {
                             name: 'x_2315548_bjit_erp_channel'
                             element: 'is_public'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '4a31d80163234bec9f1691e813cac4ad'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: '4a7bfa72ce034991809a5d7cfcedfadf'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
                         }
                     },
                     {
@@ -1034,6 +1575,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '4d909dac95064277ad28d560aeeccd12'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'bank_account_number'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '4dd099e2dc0f4e949455705e32eaecbb'
                         key: {
@@ -1049,6 +1598,32 @@ declare global {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'quantity'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_db_object'
+                        id: '4fd2647e2bd442bc898a9c33a4515b83'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '51eeb9259c43479e911b59a84fa314f5'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'emergency_contact'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '51f6bbccd58e4248b279270211592779'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'marital_status'
+                            value: 'married'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -1093,12 +1668,29 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '5431a4b69957411995665373adf7b320'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'manager'
+                        }
+                    },
+                    {
                         table: 'sn_glider_source_artifact_m2m'
                         id: '552c7cb682154c528059b51c5ebd5ace'
                         deleted: true
                         key: {
                             application_file: '9057ceafea0c41ecb0912f74231295d2'
                             source_artifact: '9f0ace3fe01d4fccad23453eb85da078'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '552e504b3f364d559cd3da83f17d5b51'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_status'
+                            language: 'en'
                         }
                     },
                     {
@@ -1110,12 +1702,35 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '56ab43d315c7413783a11d7fcd11eedf'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nominee_name'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '576d0ee37cfd40d1be6038086b90c926'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'end_date'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '57f2510bf33049b9ab38697df995d378'
                         key: {
                             name: 'x_2315548_bjit_erp_message'
                             element: 'NULL'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_db_object'
+                        id: '5814d4d9cf404fc9888dcebb810d4c85'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
                         }
                     },
                     {
@@ -1149,6 +1764,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '5b14bb26d8ee4ce495d94c5a0adfa2a2'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'major'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '5b43f0334b2541239d63fa069cbda9fe'
                         key: {
@@ -1177,6 +1800,26 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '5e85c44c84c9436aab33c431657ed61b'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '608c3c4b965d480082cf23d1400d35c4'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_status'
+                            value: 'contract'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_choice_set'
                         id: '60c865cf9e5b4a52b9f5a9c7bedd764e'
                         key: {
@@ -1199,6 +1842,23 @@ declare global {
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'notes'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '66f4d480a14b4d27bad012cef8eaa0ac'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'promotion_date'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '6738bbefdcbc4e17a0ea63172e944d62'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'identification_number'
                         }
                     },
                     {
@@ -1234,6 +1894,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '69b8e20f40e841448b1c0b30d6ee93a4'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_mobile'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '69ff827087ab4bfb993adfd2130561b3'
                         key: {
@@ -1251,6 +1919,59 @@ declare global {
                             value: 'ready'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '6b6dcc5a23764ebe83182d17c00376c0'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'blood_group'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '6b85eb3f0e0d4cae8bfd131b50ed79f9'
+                        key: {
+                            sys_security_acl: '7768a14173c74c648020e082d641d389'
+                            sys_user_role: {
+                                id: '3fcdca7b0efe44b5a45ac4fa4636a4fa'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.hr'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '6c2e2d062fd34a4385a2096000abfbad'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'start_date'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '6d12ae08d1934110b0ecba008817bfda'
+                        key: {
+                            sys_security_acl: 'af9aeb9bc5134fe9b38abe503426051d'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '6d1efdbd3d8c440ead90c8c3b8f07ffd'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employee'
+                            language: 'en'
                         }
                     },
                     {
@@ -1274,10 +1995,29 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: '6e49a3377ac846f5b944cc64c8c45d41'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: '6e556cf37d784393a0083d0f12d7db5d'
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'assigned_to'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '6e6c7896eb6a4b9caedd127239be9972'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'gender'
+                            value: 'other'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -1286,6 +2026,23 @@ declare global {
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'support_type'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '6f9a9150c2d941b5b1c811dfb0f9e2fe'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'resignation_reason'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '6fcc1746410b4feeb60009a20f60a16c'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'private_address'
+                            language: 'en'
                         }
                     },
                     {
@@ -1323,10 +2080,27 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '729cc04fd301428fa5adcf8cc1f78e83'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'confirmation_date'
+                        }
+                    },
+                    {
                         table: 'ua_table_licensing_config'
                         id: '72caa6d50af6442fa0e232462cf5dc14'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '7377a0dd4fff46388203e11e38741bba'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'job_role'
+                            language: 'en'
                         }
                     },
                     {
@@ -1336,6 +2110,40 @@ declare global {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'NULL'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role_contains'
+                        id: '74bd06d31d634c8f955b0b56d0cdb8dd'
+                        key: {
+                            role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                            contains: {
+                                id: 'b12929a3fa764ba8b447b95773360e89'
+                                key: {
+                                    name: 'snc_basic_auth_api_access'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '75fd2c56f1894b4499d4cd465f3eb813'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'job_rank'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role'
+                        id: '766d2f80214c4f8bac265322ab9aa6c4'
+                        key: {
+                            name: 'x_2315548_bjit_erp.employee'
                         }
                     },
                     {
@@ -1353,6 +2161,26 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '775ce8e214554584aeca760d77920d86'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            value: 'experience'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '77bdb608e8ab42afb02eb92c04dc16de'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'title'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '77f189c4e87248c6b3d556aaa4ee3395'
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
@@ -1363,8 +2191,22 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '78585a0b55c04d8dbb3e571a80c99af2'
+                        key: {
+                            sys_security_acl: '1d0b9e4df7dc4454adc79ece324530d3'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_user_role_contains'
                         id: '79bbbd35e2164f3aa1db4334083b6ecd'
+                        deleted: true
                         key: {
                             role: {
                                 id: '06885cb436e64ebf9ff30b788eaf746d'
@@ -1415,6 +2257,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '7bc8d2a8d04c4ba5a0ee6ac43c20c3fe'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_status'
+                            value: 'resigned'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '7ca08e3e705442a8b34414b45a370e73'
                         key: {
@@ -1436,6 +2289,14 @@ declare global {
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'support_type'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '80b59745fabb4a388a1590263f8e40fb'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_type'
                         }
                     },
                     {
@@ -1479,6 +2340,22 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: '85ddd1e7fe464b4bab52f2cd6108ce36'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'tin_number'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '8633d8e17d4943aea9f940d7331b3509'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employee'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: '86f18aa5e438436593c3e6135d5e8a00'
                         key: {
                             name: 'x_2315548_bjit_erp_message'
@@ -1497,11 +2374,56 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '88e44b97d8af48a59d579423af9d173e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_type'
+                            value: 'employee'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '891153cab59844fabd43f41084c4d864'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'job_role'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '8b206fca85f24458bab38e3008b75db6'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_location_date'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '8bceb273667042aba67b8dd0cbec706e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_phone'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '8cb389048d324f0a93f31d52b7e0b3ec'
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'status'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '8ce27dfa72d443768adb69f738628401'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_type'
+                            language: 'en'
                         }
                     },
                     {
@@ -1554,6 +2476,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '90f38cc265944f3b9b8367429004f322'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'user'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '92655b9335e4499dbe4b3a11d1ddfbf9'
                         key: {
@@ -1562,6 +2493,24 @@ declare global {
                             value: 'note'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role_contains'
+                        id: '9283cee645d944469c6a38feb443aaac'
+                        key: {
+                            role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                            contains: {
+                                id: 'b826fe7d31a748f6adc84c2db9de09c1'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.user'
+                                }
+                            }
                         }
                     },
                     {
@@ -1575,6 +2524,29 @@ declare global {
                                     name: 'x_2315548_bjit_erp.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'ua_table_licensing_config'
+                        id: '92c1fc5a24b44c029aa107de554a974e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '92f92e45a6224a1580b7b30fc2eb535c'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_phone'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '94da91fd6b2c45e08348e53fa1fa4f2b'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'promotion_date'
                         }
                     },
                     {
@@ -1647,6 +2619,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: '999a2403b77e4055b516471567516665'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_status'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '9a2de51537684f35b8b5dbbe957cca0f'
                         key: {
@@ -1663,6 +2643,33 @@ declare global {
                         key: {
                             name: 'x_2315548_bjit_erp_asset_req'
                             element: 'manager_comments'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '9abdacd870e040fe8ee8d0d2104202c9'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'responsibility'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '9b522dbde1214d46b521018f8c16622e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'gender'
+                            value: 'male'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '9b7b01de88f2453cb66cfb901c74422d'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'NULL'
                         }
                     },
                     {
@@ -1717,6 +2724,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: 'a0e915943aa74252993b73dd3aef58ff'
+                        key: {
+                            sys_security_acl: '9db9e6152ccb452d90ef91356e225242'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'a0ff449792aa44cf9492bcfa89f512da'
                         key: {
@@ -1750,6 +2770,37 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'a23c8929568c43d88b6b3e7f7da59a84'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_email'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'a33a3d7d1da9420e9503bbca9b491973'
+                        key: {
+                            sys_security_acl: '91404ad5045844e68fc987f217e99425'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'a4501eb852364e3f982d268b5c8229eb'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'end_date'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'a4926d4a53b947cb88fc0effd7208604'
                         key: {
@@ -1765,11 +2816,52 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: 'a500aa011c164d23b88ce8df43a2428d'
+                        key: {
+                            sys_security_acl: '6ef4e1e521f643478fd938b00b20e82b'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'a55ea0a5f56d4300bf2b78a3966fe711'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'platforms'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'a5719be116d343f9820afaa9d778539d'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'user'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'a5ce42a4f5b343fdad2eec4f7c69f4c0'
                         key: {
                             name: 'x_2315548_bjit_erp_channel'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'a69791a7284a474597982321b7e12b64'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_type'
+                            value: 'intern'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -1792,6 +2884,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'a845cb84bbc74ca09c3cd86234418d6c'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'gender'
+                        }
+                    },
+                    {
                         table: 'sys_choice_set'
                         id: 'a880ec94c92e47ac89464bc80179d012'
                         key: {
@@ -1808,12 +2908,42 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'a9800e0b673e495b806df8e7623a1bf8'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'working_hours'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'a9d074e69b2f4f568567d9e891c0ed5f'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'support_type'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'aa2e245b03624f3da42e7b480679bc87'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'employee'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'abb95d6ba1e941098f6a1539f9ab8c6c'
+                        key: {
+                            sys_security_acl: 'cd30cbda82514c00bafdc1244f9674a0'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
                         }
                     },
                     {
@@ -1868,10 +2998,35 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'aefa3b1d413745528f11372d25c40ffc'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'office_location'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'af841bf4600843419ab9f791267b6c8e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_db_object'
                         id: 'b03eb0a8c38b49c7bc972fc322c82454'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'b0baad7e35e344ee8b35874fe2b68ae1'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nominee_contact'
+                            language: 'en'
                         }
                     },
                     {
@@ -1885,6 +3040,15 @@ declare global {
                                     name: 'x_2315548_bjit_erp.user'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'b17ea2cb4896404b976714dd0f550e75'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'join_date'
+                            language: 'en'
                         }
                     },
                     {
@@ -1914,6 +3078,40 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'b6347db41d894cb78bbe94c94e95ee99'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'start_date'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'b6b643e5b154492cb712de3e2b38a19c'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'identification_number'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'b7c8bacb93d7458e8ab36ec0dcb40925'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'national_id'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'b7e7414260c2491e9f20d5d6d30309b0'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'home_address'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'b813b63de13741188ddae3bbcb02afaf'
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
@@ -1928,12 +3126,79 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'b8b3e10e2c3e4d1993154cbb7677a529'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_status'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'bafa6ad31fe042bebb05c3ae8a42ed8b'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'present_address'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'bdad2340d2cd4d4dba166410f431fe49'
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'approval_manager_2'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'be354e1e0ad344a79f5b1e2735ac1a5d'
+                        key: {
+                            sys_security_acl: '8b6fe3340b644baab7bc7910df1fdf81'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'be724c18b2ab425fb3e8f226bdc31391'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'passport_number'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'c01af3e6f9c24376890e702b3173030a'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'organization'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'c04c382c03f94e5e9df2d800a69a7750'
+                        key: {
+                            sys_security_acl: 'f2eec7c9c2f84c189ff4b1f319c2a047'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'c0654dbccbaf46a2a6b516b2de69435d'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'blood_group'
                         }
                     },
                     {
@@ -1945,6 +3210,14 @@ declare global {
                             value: 'notification'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'c09664c36bbd45ca953dde5758341375'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'resource_type'
                         }
                     },
                     {
@@ -1962,6 +3235,14 @@ declare global {
                         key: {
                             application_file: '2ece8c2bc0a64c86820120c4788a5772'
                             source_artifact: '9f0ace3fe01d4fccad23453eb85da078'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'c2cb79e5c18f46b8933fd8882ab953ef'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'resignation_date'
                         }
                     },
                     {
@@ -1985,6 +3266,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'c3e6fcf026cc4993ad00e1f6100d704b'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'title'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'c594533aa12949829c6e7f01843cdaa1'
                         key: {
@@ -1993,6 +3282,19 @@ declare global {
                                 id: 'b826fe7d31a748f6adc84c2db9de09c1'
                                 key: {
                                     name: 'x_2315548_bjit_erp.user'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'c61a472bad8940fe8ea2a82af1d9aa3f'
+                        key: {
+                            sys_security_acl: 'f08878f34cda4bccb8552b14abd84ca1'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
                                 }
                             }
                         }
@@ -2021,6 +3323,14 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'c73af154d1fb436998a7d23c3fa0b55c'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'present_address'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'c7542cb0af4e40d7a79346302d3a022c'
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
@@ -2039,6 +3349,23 @@ declare global {
                         id: 'c7a8ae1a982449259b6be6f0648401f5'
                         key: {
                             name: 'x_2315548_bjit_erp_message'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'c7ee410510a14332b9d23f293f3f7869'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'teams'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'c7f40e1ba04043bfb243d72c08ca6770'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'teams'
+                            language: 'en'
                         }
                     },
                     {
@@ -2068,6 +3395,17 @@ declare global {
                         id: 'c88a75c132de4093a71e6bff0235887a'
                         key: {
                             name: 'x_2315548_bjit_erp/main.js.map'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'c8985066df374f9a87a03a0093c5134e'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'gender'
+                            value: 'female'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -2135,6 +3473,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: 'cca813e074114fe8b8584c023426a9c3'
+                        key: {
+                            sys_security_acl: '4c7b57d1faa046d9a4d1388d037c7f74'
+                            sys_user_role: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: 'cd69d968464a4f0c9d8d0cdfc418e7c9'
                         key: {
                             sys_security_acl: 'a8b0f116735a44cb81957f8d731acc49'
@@ -2156,6 +3507,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'ce7c84a48bdc455b9dd92518611a8daf'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'department'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'd07fd7d696bf4de490474d59e0be0fc2'
                         key: {
@@ -2166,6 +3525,17 @@ declare global {
                                     name: 'x_2315548_bjit_erp.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'd0a87b42cb77477a9caa08ed30820fb1'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'marital_status'
+                            value: 'other'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -2182,10 +3552,26 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'd1461fcbd7e740479bcf3699f3cbf14d'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nationality'
+                        }
+                    },
+                    {
                         table: 'sys_ux_lib_asset'
                         id: 'd19ee4340eff46a1b61960872e566dfd'
                         key: {
                             name: 'x_2315548_bjit_erp/vendor-react-dom--55da69dc'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'd2e93606bf064f0689c771bd0e3eb096'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'job_title'
                         }
                     },
                     {
@@ -2203,6 +3589,24 @@ declare global {
                             name: 'x_2315548_bjit_erp_location'
                             element: 'NULL'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role_contains'
+                        id: 'd6d85ddfdf684e2f8ae8bdca22a7ccc2'
+                        key: {
+                            role: {
+                                id: '3fcdca7b0efe44b5a45ac4fa4636a4fa'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.hr'
+                                }
+                            }
+                            contains: {
+                                id: '766d2f80214c4f8bac265322ab9aa6c4'
+                                key: {
+                                    name: 'x_2315548_bjit_erp.employee'
+                                }
+                            }
                         }
                     },
                     {
@@ -2241,6 +3645,35 @@ declare global {
                         key: {
                             name: 'x_2315548_bjit_erp_ticket'
                             element: 'title'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'dcd8e5a9e7554e47b6f5dea1557efd01'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_number'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'dd5b60d963d044fe9634f1d26c9b0526'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'ups_account_no'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'de1f319fffb54cdba3ee17942ce36864'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'employee_type'
+                            value: 'contractor'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -2286,6 +3719,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'df9b66017c1a4b19a7f36c789883dc66'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'emergency_contact'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'e180347a52bf4629bc3fbda9874a1c80'
                         key: {
@@ -2314,6 +3756,14 @@ declare global {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'name'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'e1dacf290738463b8f893c1347156eaf'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'employee'
                         }
                     },
                     {
@@ -2347,10 +3797,27 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'e2c5b1751ffb49a0a7bff5f7d1671f85'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'platforms'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'e2d6052be71b484180f1bfe873567f31'
                         key: {
                             name: 'x_2315548_bjit_erp_asset_req'
                             element: 'number'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'e416b09258b24df2aab6c8115fc0a032'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'responsibility'
+                            language: 'en'
                         }
                     },
                     {
@@ -2360,6 +3827,22 @@ declare global {
                             name: 'x_2315548_bjit_erp_location'
                             element: 'is_store'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: 'e4b0d7d498fb44089a9abcf15ed77ec7'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'marital_status'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'e4e42c870c174672bcc9dea21f9aa638'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'date_of_birth'
                         }
                     },
                     {
@@ -2404,6 +3887,26 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: 'e9983ef84f7b496c852924414a34eb0c'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employment_location_date'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'e9d2c128008c4c15b8a4930d9473c03d'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            value: 'certification'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: 'e9d479ccc41544b6963d673df9ee899f'
                         key: {
                             name: 'x_2315548_bjit_erp_asset_req'
@@ -2417,6 +3920,15 @@ declare global {
                         key: {
                             name: 'x_2315548_bjit_erp_channel'
                             element: 'channel_type'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'ed71641736634b6fb55b2fbf7812df1a'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'marital_status'
+                            language: 'en'
                         }
                     },
                     {
@@ -2438,6 +3950,14 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'edfd9c131d8844ff8fe7b3424eeaa0e9'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'employee_old_id'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'f043ce83035249f4be44e5ed18679f95'
                         key: {
                             name: 'x_2315548_bjit_erp_location'
@@ -2450,6 +3970,23 @@ declare global {
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'asset_type'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'f09f679f53944d7b8684d278e19bc0fc'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'release_type'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'f0b2f47476f749d5a631b8183c3937ff'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee'
+                            element: 'work_address'
+                            language: 'en'
                         }
                     },
                     {
@@ -2492,6 +4029,26 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'f3ece7b2b0fe41be80588795e0634263'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'tin_number'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'f4168d051d184ea4add28087e45668c8'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_item'
+                            element: 'category'
+                            value: 'technical'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'f5b51ccdd83b43058f079e985d037c14'
                         key: {
@@ -2514,6 +4071,23 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'f6b981b2f2b444aab2fe2fb5ad5cd1f0'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'religion'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'f6dac76a08e54bfba5b0faf1b3bea8b0'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nationality'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'f6f97213bf9549daaf9a19ee42ce5879'
                         key: {
@@ -2531,6 +4105,15 @@ declare global {
                             value: 'components'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'f7b3fa676e2b4877ba81680694050d06'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'working_hours'
+                            language: 'en'
                         }
                     },
                     {
@@ -2555,6 +4138,14 @@ declare global {
                         id: 'f92d4eb4a05f4c1f87a40dc65ef99348'
                         key: {
                             name: 'x_2315548_bjit_erp_message'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'f9484bbe1b364d00a79044e13a364c97'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nominee_relationship'
                         }
                     },
                     {
@@ -2605,11 +4196,46 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'fd3edb22ea0d45849316e6435b175c35'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'nominee_relationship'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'fd41f03992344aeb8435e414dc566631'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'national_id'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'fe8be464012d48479eeda61787cb80ef'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'passport_number'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'ff0e81d2e9c8486281f1d63ceaddaad9'
                         key: {
                             name: 'x_2315548_bjit_erp_asset'
                             element: 'asset_type'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'ff364a372fef4ace8ebe26a0d1d1e680'
+                        key: {
+                            name: 'x_2315548_bjit_erp_employee_private'
+                            element: 'biometric_id'
                         }
                     },
                 ]
